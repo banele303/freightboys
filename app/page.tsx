@@ -38,7 +38,8 @@ import {
   Globe,
   CreditCard,
   Anchor,
-  Wind
+  Wind,
+  Bike
 } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
@@ -168,6 +169,27 @@ const categories = [
     count: "Operations",
     image: "/new-img/new-img8.jpeg",
     href: "/services/stevedoring"
+  },
+  { 
+    name: "Motorbikes", 
+    icon: Bike, 
+    count: "Transport",
+    image: "/new-img/bike2.jpeg",
+    href: "/services"
+  },
+  { 
+    name: "Wrapping & Crating", 
+    icon: Package, 
+    count: "Export Protection",
+    image: "/new-img/crafting5.jpeg",
+    href: "/services"
+  },
+  { 
+    name: "Engines & Gearboxes", 
+    icon: Zap, 
+    count: "Cash & Carry",
+    image: "/new-img/engine1.jpeg",
+    href: "/services/engines-gearboxes"
   }
 ];
 
@@ -268,7 +290,7 @@ export default function Home() {
             </div>
 
                 {/* CENTER — Wide Dark Yellow Slider */}
-            <div className="col-span-12 lg:col-span-7">
+            <div className="col-span-12 lg:col-span-8">
               <div className="relative w-full aspect-[4/5] sm:aspect-[16/9] rounded-xl overflow-hidden shadow-2xl bg-[#0a0a0a]">
                 
                 <div className="absolute inset-0 z-0">
@@ -390,43 +412,22 @@ export default function Home() {
               </div>
             </div>
 
-            {/* RIGHT SIDEBAR — Core Expertise & Global Network */}
-            <div className="hidden lg:flex col-span-3 flex-col gap-3">
-
-              {/* Core Expertise Card */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm flex-1">
-                <div className="flex items-center gap-2 mb-6">
-                  <div className="w-1.5 h-6 bg-[#2563eb] rounded-full" />
-                  <h3 className="font-black text-slate-900 text-xs uppercase tracking-widest">
-                    Core Expertise
-                  </h3>
+            {/* RIGHT SIDEBAR — Bike Imagery */}
+            <div className="hidden lg:flex col-span-2 flex-col gap-2">
+              {[
+                "/new-img/bike.jpeg",
+                "/new-img/bike2.jpeg",
+              ].map((img, i) => (
+                <div key={i} className="relative w-full aspect-[3/4] rounded-xl overflow-hidden bg-white shadow-sm group cursor-pointer">
+                  <Image
+                    src={img}
+                    alt="Motorbike Transport & Imports"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 </div>
-
-                <div className="space-y-4">
-                  {[
-                    { title: "Customs Clearing", icon: ShieldCheck, color: "text-blue-500" },
-                    { title: "Road Freight", icon: Truck, color: "text-green-500" },
-                    { title: "Import/Export", icon: Globe, color: "text-purple-500" },
-                    { title: "Container Solutions", icon: Box, color: "text-orange-500" },
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-4 p-3 rounded-xl bg-slate-50 hover:bg-slate-100 transition-all cursor-pointer group">
-                      <div className={cn("w-10 h-10 rounded-lg bg-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform", item.color)}>
-                        <item.icon className="w-5 h-5" />
-                      </div>
-                      <span className="text-[11px] font-black text-slate-800 uppercase tracking-tighter">{item.title}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-slate-100">
-                  <Link href="/contact" className="w-full h-12 bg-slate-900 text-white rounded-xl flex items-center justify-center gap-2 font-black uppercase tracking-widest text-[10px] hover:bg-[#2563eb] transition-all">
-                    <Phone className="w-3 h-3" />
-                    Request Quote
-                  </Link>
-                </div>
-              </div>
-
-              
+              ))}
             </div>
 
           </div>
@@ -605,7 +606,9 @@ export default function Home() {
               { name: "Local & National Transport", description: "Reliable local and national transport solutions tailored for both containerized goods and bulk cargo across South Africa.", price: "Custom Quote", tag: "Logistics", image: "/new-img/new-img10.jpeg", link: "/services/national-transport" },
               { name: "Container Fumigation", description: "Professional container fumigation services to guarantee pest-free, compliant shipments meeting global standards.", price: "Custom Quote", tag: "Fumigation", image: "/new-img/VID-new.mp4", link: "/services/container-fumigation" },
               { name: "Stevedoring Services", description: "We are currently applying for a full stevedoring license, expanding port capabilities, vessel loading, and discharging.", price: "Pending", tag: "Operations", image: "/new-img/new-img14.jpeg", link: "/services/stevedoring" },
-              { name: "Equipment Hire", description: "We also have an equipment hire option available for specialized lifting, transport, and site operations.", price: "Daily Rates", tag: "Machinery", image: "/new-img/equipment.jpeg", link: "/services/equipment-hire" },
+              { name: "Equipment Hire", description: "We also have an equipment hire option available for specialized lifting, transport, and site operations.", price: "Daily Rates", tag: "Machinery", image: "/packing.png", link: "/services/equipment-hire" },
+              { name: "Motorbike Transport & Imports", description: "We also handle the specialized transport and import of motorcycles, ensuring safe, secure, and scratch-free delivery.", price: "Custom Quote", tag: "Bikes", image: "/new-img/bike2.jpeg", link: "/services" },
+              { name: "Vehicle Wrapping & Crating", description: "Professional wrapping, packaging, and crating of new and used commercial vehicles. Trusted for international exports including to the Caribbean.", price: "Custom Quote", tag: "Crating", image: "/new-img/crafting5.jpeg", link: "/services" },
             ].map((item, idx) => (
               <Link href={item.link || "/services"} key={idx} className="block group cursor-pointer transition-transform duration-500 hover:-translate-y-2">
               <motion.div

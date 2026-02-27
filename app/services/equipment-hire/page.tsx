@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { CheckCircle, ArrowRight, Phone, Wrench, Package, Truck, Clock, ShieldCheck, Cog } from "lucide-react";
+import ServiceHero from "@/components/ServiceHero";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -19,41 +20,15 @@ const staggerContainer = {
 export default function EquipmentHirePage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero */}
-      <section className="relative h-[80vh] min-h-[600px] flex items-center overflow-hidden bg-[#0a0a0a]">
-        <div className="absolute inset-0 z-0">
-          <Image src="/new-img/equipment.jpeg" alt="Equipment Hire" fill className="object-cover opacity-30 object-center" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-[#0a0a0a]" />
-        </div>
-        <div className="absolute top-0 right-0 w-[500px] h-[300px] bg-[#ef4444]/15 blur-[120px] rounded-full pointer-events-none" />
-
-        <div className="container mx-auto px-6 relative z-10 pt-20">
-          <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-4xl mx-auto text-center">
-            <motion.span variants={fadeInUp} className="inline-flex items-center gap-2 px-6 py-2 bg-[#ef4444] text-white text-[10px] font-black uppercase tracking-widest mb-8 shadow-2xl shadow-red-500/40 rounded-full">
-              <Wrench className="h-4 w-4" /> Logistics Machinery
-            </motion.span>
-            <motion.h1 variants={fadeInUp} className="text-6xl md:text-9xl font-black tracking-tighter leading-[0.85] text-white mb-10 uppercase italic">
-              Equipment <br /> <span className="text-[#ef4444]">Hire</span>
-            </motion.h1>
-            <motion.p variants={fadeInUp} className="text-lg md:text-2xl text-slate-300 max-w-2xl mx-auto mb-10 font-medium leading-relaxed drop-shadow-lg">
-              We also have an equipment hire option available. Access our premium fleet of heavy lifting, handling, and logistics machinery with flexible terms.
-            </motion.p>
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12">
-              <Button asChild size="xl" className="h-20 px-12 rounded-[24px] bg-[#ef4444] hover:bg-[#dc2626] text-white text-xl shadow-2xl shadow-red-500/20 border border-white/10 group overflow-hidden relative font-black uppercase tracking-widest">
-                <Link href="/contact" className="flex items-center gap-3">
-                  <span className="relative z-10">Hire Equipment</span>
-                  <ArrowRight className="h-6 w-6 relative z-10 group-hover:translate-x-2 transition-transform" />
-                </Link>
-              </Button>
-              <Button asChild size="xl" variant="outline" className="h-20 px-12 rounded-[24px] border-2 border-white/20 text-white text-xl font-black uppercase tracking-widest hover:bg-white hover:text-[#0a0a0a] transition-all">
-                <a href="tel:+27842667178" className="flex items-center gap-3">
-                  <Phone className="h-6 w-6" /> Call For Rates
-                </a>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      {/* Dynamic Hero Slider */}
+      <ServiceHero
+        title="Equipment"
+        subtitle="Hire"
+        description="We also have an equipment hire option available. Access our premium fleet of heavy lifting, handling, and logistics machinery with flexible terms."
+        tag="Logistics Machinery"
+        images={["/packing.png", "/new-img/equipment-two.jpeg", "/new-img/equipment.jpeg"]}
+        icon={Wrench}
+      />
 
       {/* Detail Content */}
       <section className="py-24 bg-white">
@@ -131,7 +106,7 @@ export default function EquipmentHirePage() {
 
       {/* CTA */}
       <section className="py-24 bg-[#ef4444] relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/new-img/equipment.jpeg')] bg-cover bg-center opacity-10 mix-blend-overlay" />
+        <div className="absolute inset-0 bg-[url('/packing.png')] bg-cover bg-center opacity-10 mix-blend-overlay" />
         <div className="container mx-auto px-6 text-center relative z-10">
           <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter uppercase italic mb-6">Need Heavy <span className="text-white/80">Support?</span></h2>
           <p className="text-white/80 text-lg font-medium mb-10 max-w-xl mx-auto italic">Get in touch to check equipment availability and secure your booking.</p>

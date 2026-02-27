@@ -58,6 +58,9 @@ export default function Navbar() {
     { title: "Container Solutions", subtitle: "Stuffing & Unpacking", href: "/services/container-solutions", icon: Box },
     { title: "Vehicle Freight", subtitle: "Ocean Freight Experts", href: "/services/vehicle-ocean-freight", icon: Anchor },
     { title: "Specialized Services", subtitle: "Exclusive Deliveries", href: "/services/specialized", icon: Truck },
+    { title: "New Vehicles (Thailand)", subtitle: "Exclusive Imports", href: "/services/new-vehicles-thailand", icon: Car },
+    { title: "Used Commercial", subtitle: "Japan & Singapore", href: "/services/used-commercial-vehicles", icon: Truck },
+    { title: "Engines & Gearboxes", subtitle: "Preloved Auto Parts", href: "/services/engines-gearboxes", icon: Zap },
   ];
 
   return (

@@ -231,11 +231,51 @@ const serviceCategories = [
     icon: Wrench,
     title: "Equipment Hire",
     subtitle: "Heavy Machinery & Tools",
-    image: "/new-img/equipment.jpeg",
+    image: "/packing.png",
     description: "We also have an equipment hire option available for specialized lifting, transport, and site operations with flexible rental terms.",
     tags: ["Equipment", "Hire", "Machinery"],
     link: "/services/equipment-hire",
     price: "Daily & Weekly Rates"
+  },
+  {
+    icon: Car,
+    title: "New Vehicles from Thailand",
+    subtitle: "Supplied 1 Year Early",
+    image: "/new-tailand.png",
+    description: "New vehicles sourced from Thailand supplied 1 year before reaching African soil. Tailored exactly to the specs you require, shipped directly to your destination.",
+    tags: ["Thailand", "New Specs", "Export"],
+    link: "/services/new-vehicles-thailand",
+    price: "Custom Orders"
+  },
+  {
+    icon: Truck,
+    title: "Used Commercial Vehicles",
+    subtitle: "Japan & Singapore",
+    image: "/from-japan.png",
+    description: "Large selection of Japanese and Singapore used commercial vehicles, from passenger to light and heavy-duty trucks with or without PTO.",
+    tags: ["Japan/Singapore", "Commercial", "PTO"],
+    link: "/services/used-commercial-vehicles",
+    price: "Various Rates"
+  },
+  {
+    icon: Zap,
+    title: "Engines & Gearboxes",
+    subtitle: "Preloved Complete Sets",
+    image: "/new-img/engine1.jpeg",
+    description: "Preloved complete engines and gearboxes with computer ECU, low kilometers in great condition. Cash & carry at our EngineLand store on Sylvester Ntuli Rd, Durban.",
+    tags: ["Engines", "Gearboxes", "Durban Store"],
+    link: "/services/engines-gearboxes",
+    price: "Cash & Carry"
+  },
+  {
+    icon: Package,
+    title: "Vehicle Wrapping & Crating",
+    subtitle: "Export Protection",
+    image: "/new-img/crafting5.jpeg",
+    description: "Professional wrapping, packaging, and crating of new and used commercial vehicles for international export, including deep-sea destinations like the Caribbean.",
+    tags: ["Wrapping", "Packaging", "Crating", "Export"],
+    link: "/services",
+    price: "Custom Quote"
   }
 ];
 
