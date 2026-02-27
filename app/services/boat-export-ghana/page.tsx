@@ -72,9 +72,20 @@ export default function BoatExportGhanaPage() {
             </motion.p>
             <motion.div
               variants={fadeInUp}
-              className="text-4xl md:text-6xl font-black text-[#2563eb] mb-12"
+              className="text-4xl md:text-6xl font-black text-[#2563eb] mb-12 flex items-center justify-center gap-2 relative group md:w-fit mx-auto"
             >
               R 10,000.00 <span className="text-lg text-slate-400 font-medium italic">/ Full Package</span>
+              <span className="text-2xl text-white font-black cursor-help hover:text-[#ef4444] transition-colors ml-2">*</span>
+
+              {/* Dark Theme Pricing Tooltip */}
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-60 md:w-72 bg-[#0a0a0a]/95 backdrop-blur-xl text-white rounded-2xl p-4 md:p-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] border border-white/10 pointer-events-none transform translate-y-3 group-hover:translate-y-0 text-left">
+                <span className="text-[#2563eb] font-black uppercase tracking-[0.2em] block mb-1 text-[8px] md:text-[10px]">Pricing Notice</span>
+                <p className="text-[10px] md:text-xs font-medium leading-relaxed text-slate-300 font-sans tracking-normal">
+                  Price estimates fluctuate depending on the dollar exchange rate. All listed prices must include VAT.
+                </p>
+                {/* Tooltip Arrow */}
+                <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#0a0a0a]/95 border-t border-l border-white/10 rotate-45 transform pointer-events-none"></div>
+              </div>
             </motion.div>
             <motion.div
               variants={fadeInUp}

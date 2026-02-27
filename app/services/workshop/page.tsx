@@ -125,7 +125,7 @@ export default function WorkshopServicesPage() {
               className="flex flex-col sm:flex-row items-center justify-center gap-6"
             >
               <Button asChild size="xl" className="btn-primary rounded-none px-12 py-8 text-xl font-black uppercase tracking-widest hover:scale-105 transition-all duration-300 shadow-2xl shadow-primary/25">
-                <a href="tel:+27829624108">
+                <a href="tel:+27842667178">
                   <Phone className="mr-3 h-6 w-6" />
                   Request Parts
                 </a>
@@ -136,7 +136,7 @@ export default function WorkshopServicesPage() {
                 variant="outline"
                 className="rounded-none px-12 py-8 text-xl font-black uppercase tracking-widest border-2 border-slate-200 hover:bg-slate-50 transition-all duration-300"
               >
-                <a href="https://wa.me/27829624108">
+                <a href="https://wa.me/27842667178">
                   <MessageCircle className="mr-3 h-6 w-6" />
                   WhatsApp Stock Check
                 </a>
@@ -281,19 +281,19 @@ export default function WorkshopServicesPage() {
                   role: "Managing Director",
                   name: "Francois Marais",
                   email: "sales@sparescity.co.za",
-                  phone: "082 962 4108",
+                  phone: "084 266 7178",
                 },
                 {
                   role: "Warehouse Manager",
                   name: "Albertus Marais",
                   email: "info@sparescity.co.za",
-                  phone: "082 962 4108",
+                  phone: "084 266 7178",
                 },
                 {
                   role: "Parts Specialist",
                   name: "Logan Richardson",
                   email: "sales@sparescity.co.za",
-                  phone: "082 962 4108",
+                  phone: "084 266 7178",
                 },
               ].map((member, index) => (
                 <motion.div
@@ -359,7 +359,7 @@ export default function WorkshopServicesPage() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Button asChild size="xl" className="w-full sm:w-auto btn-primary rounded-none px-12 py-10 text-2xl font-black uppercase tracking-[0.2em] shadow-2xl">
-                <a href="tel:+27829624108" target="_blank" rel="noopener noreferrer">
+                <a href="tel:+27842667178" target="_blank" rel="noopener noreferrer">
                   <Phone className="mr-4 h-10 w-10" />
                   Call Sales
                 </a>

@@ -106,8 +106,15 @@ export default function CarCard({ car }: { car: Car }) {
                 {car.model}
               </h3>
             </div>
-            <div className="text-2xl font-black tracking-tighter text-slate-900">
-               {formatPrice(car.price)}
+            <div className="flex flex-col items-end relative group/price">
+              <div className="text-2xl font-black tracking-tighter text-slate-900 flex items-start">
+                 {formatPrice(car.price)}
+                 <span className="text-[14px] text-primary font-black ml-0.5 cursor-help">*</span>
+              </div>
+              <div className="absolute top-full right-0 mt-2 w-64 bg-slate-900/95 backdrop-blur-md text-white text-[10px] p-4 rounded-2xl opacity-0 invisible group-hover/price:opacity-100 group-hover/price:visible transition-all duration-300 z-50 shadow-2xl border border-white/10 pointer-events-none transform translate-y-2 group-hover/price:translate-y-0 text-left leading-relaxed font-medium">
+                <span className="text-primary font-black uppercase tracking-[0.2em] block mb-1 text-[8px]">Pricing Notice</span>
+                Price estimates fluctuate depending on the dollar rate. All prices must include VAT.
+              </div>
             </div>
           </div>
 

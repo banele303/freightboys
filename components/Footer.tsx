@@ -144,7 +144,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <Link href="tel:+27842667178" className="text-slate-900 font-bold block mb-1">+27 84 266 7178</Link>
-                  <Link href="mailto:info@freightboys.co.za" className="text-slate-400 font-bold italic text-sm">info@freightboys.co.za</Link>
+                  <Link href="mailto:Freightboys@gmail.com" className="text-slate-400 font-bold italic text-sm">Freightboys@gmail.com</Link>
                 </div>
               </div>
               <div className="flex gap-6 items-start">

@@ -36,7 +36,9 @@ import {
   Calendar,
   Headset,
   Globe,
-  CreditCard
+  CreditCard,
+  Anchor,
+  Wind
 } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
@@ -101,7 +103,7 @@ const categories = [
     name: "Container Solutions", 
     icon: Box, 
     count: "Import & Export",
-    image: "/new-tailand.png",
+    image: "/new-img/container.jpeg",
     href: "/services"
   },
   { 
@@ -117,6 +119,55 @@ const categories = [
     count: "24/7 Support",
     image: "/from-jpg.png",
     href: "/services"
+  },
+  { 
+    name: "Container Sales", 
+    icon: Box, 
+    count: "New & Used",
+    image: "/new-img/conteiner2.jpeg",
+    href: "/services/container-sales"
+  },
+  { 
+    name: "Household Effects", 
+    icon: Package, 
+    count: "Relocations",
+    image: "/new-img/new-img3.jpeg",
+    href: "/services/household-effects"
+  },
+  { 
+    name: "Border Transport", 
+    icon: Truck, 
+    count: "Project Cargo",
+    image: "/new-img/new-img4.jpeg",
+    href: "/services/cross-border-transport"
+  },
+  { 
+    name: "Sea Assessments", 
+    icon: ShieldCheck, 
+    count: "Lashing Certs",
+    image: "/new-img/new-img5.jpeg",
+    href: "/services/seafreight-assessments"
+  },
+  { 
+    name: "National Transport", 
+    icon: Truck, 
+    count: "Bulk Cargo",
+    image: "/new-img/new-img6.jpeg",
+    href: "/services/national-transport"
+  },
+  { 
+    name: "Fumigation", 
+    icon: Wind, 
+    count: "Compliance",
+    image: "/new-img/VID-new.mp4",
+    href: "/services/container-fumigation"
+  },
+  { 
+    name: "Stevedoring", 
+    icon: Anchor, 
+    count: "Operations",
+    image: "/new-img/new-img8.jpeg",
+    href: "/services/stevedoring"
   }
 ];
 
@@ -395,9 +446,9 @@ export default function Home() {
           <div className="marquee-content gap-16 items-center" style={{ "--duration": "30s" } as React.CSSProperties}>
             {[...Array(2)].map((_, setIdx) => (
               <div key={setIdx} className="flex items-center gap-16 px-8 text-black">
-                {["Maersk", "MSC", "Hapag-Lloyd", "CMA CGM", "COSCO", "Evergreen", "One", "Yang Ming", "Wan Hai", "Pil"].map((brand) => (
-                  <span key={`${setIdx}-${brand}`} className="text-slate-300 text-2xl font-black uppercase tracking-widest whitespace-nowrap hover:text-slate-900 transition-colors cursor-default">
-                    {brand}
+                {["Customs Clearing", "Road Freight Logistics", "Container Solutions", "Vehicle Ocean Freight", "Vintage Vehicles Packing", "Import Used Vehicles", "Container Sales", "Household Effects", "Cross Border Transport", "Seafreight Assessments", "Local & National Transport", "Container Fumigation", "Stevedoring Services"].map((service) => (
+                  <span key={`${setIdx}-${service}`} className="text-slate-300 text-2xl font-black uppercase tracking-widest whitespace-nowrap hover:text-slate-900 transition-colors cursor-default">
+                    {service}
                   </span>
                 ))}
               </div>
@@ -421,21 +472,32 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {categories.slice(0, 5).map((category, idx) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {categories.map((category, idx) => (
               <Link
                 key={category.name}
                 href={category.href}
                 className="group relative h-[180px] overflow-hidden rounded-md bg-white shadow-sm"
               >
-                {/* Background Image */}
-                <Image
-                  src={category.image}
-                  alt={category.name}
-                  fill
-                  unoptimized
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
-                />
+                {/* Background Media */}
+                {category.image.endsWith('.mp4') ? (
+                  <video 
+                    src={category.image}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700"
+                  />
+                ) : (
+                  <Image
+                    src={category.image}
+                    alt={category.name}
+                    fill
+                    unoptimized
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                )}
                 
                 {/* Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent group-hover:from-[#ef4444]/60 transition-all duration-500" />
@@ -530,31 +592,50 @@ export default function Home() {
  
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
             {[
-              { name: "Customs Clearing & Forwarding", description: "I do customs clearing and forwarding. Expert customs brokerage ensuring efficient movement of goods across borders.", price: "Expert Service", tag: "Certified", image: "/vintage4.png" },
-              { name: "Road Freight Logistics", description: "I do roadfreight. Secure and timely road transportation for local and cross-border cargo across Southern Africa.", price: "Custom Quote", tag: "Reliable", image: "/packing2.png" },
-              { name: "Container Solutions", description: "I load and unload cargo into containers either into or out of the country ie import export. Professional stuffing & unpacking.", price: "Safety First", tag: "Operations", image: "/newpn.png" },
-              { name: "Vehicle Ocean Freight", description: "I specialize in loading and offloading vehicles in ocean freight containers. Precision lashing and secure global transit.", price: "Specilaist", tag: "Maritime", image: "/from-jpn3.png" },
-              { name: "Vintage Vehicles Packing", description: "Relocation of prized used collectors vehicles to New Zealand. Carefully lashed to ensuring scratch-free delivery.", price: "R 3,950.00", tag: "NZ Export", image: "/vintage.png" },
-              { name: "Import Used Vehicles", description: "Used cars from Japan & Singapore to South Africa. BONDED as transit to SADC COUNTRIES IN AFRICA. KNE103U.", price: "R 1,950.00", tag: "Bonded", image: "/from-japan.png" },
+              { name: "Customs Clearing & Forwarding", description: "I do customs clearing and forwarding. Expert customs brokerage ensuring efficient movement of goods across borders.", price: "Expert Service", tag: "Certified", image: "/vintage4.png", link: "/services" },
+              { name: "Road Freight Logistics", description: "I do roadfreight. Secure and timely road transportation for local and cross-border cargo across Southern Africa.", price: "Custom Quote", tag: "Reliable", image: "/packing2.png", link: "/services" },
+              { name: "Container Solutions", description: "I load and unload cargo into containers either into or out of the country ie import export. Professional stuffing & unpacking.", price: "Safety First", tag: "Operations", image: "/new-img/container.jpeg", link: "/services" },
+              { name: "Vehicle Ocean Freight", description: "I specialize in loading and offloading vehicles in ocean freight containers. Precision lashing and secure global transit.", price: "Specilaist", tag: "Maritime", image: "/from-jpn3.png", link: "/services" },
+              { name: "Vintage Vehicles Packing", description: "Relocation of prized used collectors vehicles to New Zealand. Carefully lashed to ensuring scratch-free delivery.", price: "R 3,950.00", tag: "NZ Export", image: "/vintage.png", link: "/services" },
+              { name: "Import Used Vehicles", description: "Used cars from Japan & Singapore to South Africa. BONDED as transit to SADC COUNTRIES IN AFRICA. KNE103U.", price: "R 1,950.00", tag: "Bonded", image: "/from-japan.png", link: "/services" },
+              { name: "Container Sales", description: "Sales of new and used shipping containers for diverse applications, ensuring high quality and structural durability.", price: "Custom Quote", tag: "Sales", image: "/new-img/conteiner2.jpeg", link: "/services/container-sales" },
+              { name: "Household Effects", description: "Professional packaging and loading into containers for those leaving the country or moving within. Customs assistance.", price: "Custom Quote", tag: "Relocations", image: "/new-img/new-img4.jpeg", link: "/services/household-effects" },
+              { name: "Cross Border Transport", description: "Specialized cross-border transport for all goods, including abnormal and project cargo, ensuring safe delivery.", price: "Custom Quote", tag: "Abnormal", image: "/new-img/new-img6.jpeg", link: "/services/cross-border-transport" },
+              { name: "Seafreight Assessments", description: "We offer seafreight assessments and lashing certificates to ensure your goods are compliant for marine insurance.", price: "Certified", tag: "Marine", image: "/new-img/new-img8.jpeg", link: "/services/seafreight-assessments" },
+              { name: "Local & National Transport", description: "Reliable local and national transport solutions tailored for both containerized goods and bulk cargo across South Africa.", price: "Custom Quote", tag: "Logistics", image: "/new-img/new-img10.jpeg", link: "/services/national-transport" },
+              { name: "Container Fumigation", description: "Professional container fumigation services to guarantee pest-free, compliant shipments meeting global standards.", price: "Custom Quote", tag: "Fumigation", image: "/new-img/VID-new.mp4", link: "/services/container-fumigation" },
+              { name: "Stevedoring Services", description: "We are currently applying for a full stevedoring license, expanding port capabilities, vessel loading, and discharging.", price: "Pending", tag: "Operations", image: "/new-img/new-img14.jpeg", link: "/services/stevedoring" },
+              { name: "Equipment Hire", description: "We also have an equipment hire option available for specialized lifting, transport, and site operations.", price: "Daily Rates", tag: "Machinery", image: "/new-img/equipment.jpeg", link: "/services/equipment-hire" },
             ].map((item, idx) => (
+              <Link href={item.link || "/services"} key={idx} className="block group cursor-pointer transition-transform duration-500 hover:-translate-y-2">
               <motion.div
-                key={idx}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
-                className="group bg-slate-50 rounded-3xl overflow-hidden hover:bg-slate-100 transition-all duration-500 border border-slate-100 flex flex-col h-full"
+                className="bg-slate-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 flex flex-col h-full"
               >
                 {/* Image Section */}
                 <div className="relative aspect-[16/10] overflow-hidden p-[2px] pb-0">
                   <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-sm">
-                    <Image 
-                      src={item.image} 
-                      alt={item.name} 
-                      fill 
-                      unoptimized
-                      className="object-cover group-hover:scale-110 transition-transform duration-700" 
-                    />
+                    {item.image.endsWith('.mp4') ? (
+                      <video 
+                        src={item.image}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700"
+                      />
+                    ) : (
+                      <Image 
+                        src={item.image} 
+                        alt={item.name} 
+                        fill 
+                        unoptimized
+                        className="object-cover group-hover:scale-110 transition-transform duration-700" 
+                      />
+                    )}
                   </div>
                   
                   {/* Floating Badge */}
@@ -576,14 +657,33 @@ export default function Home() {
                   </p>
 
                   {/* Footer Action */}
-                  <div className="mt-auto pt-6 border-t border-slate-200/60 flex items-center justify-between">
-                    <span className="text-xl font-black text-slate-900 tracking-tight">{item.price}</span>
+                  <div className="mt-auto pt-6 border-t border-slate-200/60 flex items-center justify-between relative group/servicePrice">
+                    <div className="flex items-start cursor-help">
+                      <span className="text-xl font-black text-slate-900 tracking-tight">{item.price}</span>
+                      {item.price.includes("R") && (
+                        <span className="text-sm text-[#2563eb] font-black ml-1">*</span>
+                      )}
+                    </div>
+
+                    {/* Pricing Tooltip */}
+                    {item.price.includes("R") && (
+                      <div className="absolute bottom-full left-0 mb-4 w-60 bg-slate-900/95 backdrop-blur-md text-white border border-white/10 rounded-2xl p-4 opacity-0 invisible group-hover/servicePrice:opacity-100 group-hover/servicePrice:visible transition-all duration-300 z-50 shadow-2xl translate-y-2 group-hover/servicePrice:translate-y-0 pointer-events-none text-left">
+                        <span className="text-[#2563eb] font-black uppercase tracking-[0.2em] block mb-1 text-[8px]">Important</span>
+                        <p className="text-[10px] font-medium leading-relaxed text-slate-300">
+                          Price estimates fluctuate depending on the dollar exchange rate. All listed prices must include VAT.
+                        </p>
+                        {/* Tooltip Arrow */}
+                        <div className="absolute -bottom-2 left-6 w-4 h-4 bg-slate-900/95 border-b border-r border-white/10 rotate-45 transform pointer-events-none"></div>
+                      </div>
+                    )}
+
                     <div className="flex items-center gap-2 text-[#2563eb] font-black uppercase tracking-widest text-[10px] group-hover:gap-4 transition-all">
                       Details <ArrowRight className="w-4 h-4" />
                     </div>
                   </div>
                 </div>
               </motion.div>
+             </Link>
             ))}
           </div>
         </div>

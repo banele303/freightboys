@@ -198,10 +198,30 @@ export default function CarDetailPage() {
                 <span className="gradient-text italic">{car.model}</span>
               </h1>
               
-              <div className="mt-8 p-10 bg-slate-50 border-l-8 border-primary">
-                <span className="text-[10px] text-slate-400 font-black uppercase tracking-[0.3em] block mb-2">Price Estimate (ZAR)</span>
-                <div className="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter">
+              <div className="mt-8 p-10 bg-slate-50 border-l-8 border-primary relative group">
+                <span className="text-[10px] text-slate-400 font-black uppercase tracking-[0.3em] block mb-2 flex items-center justify-between">
+                  Price Estimate (ZAR)
+                  <span className="px-2 py-1 bg-white border border-slate-200 text-slate-400 rounded-full cursor-help hover:text-slate-900 hover:border-slate-300 transition-colors">
+                    <span className="sr-only">Notice</span>?
+                  </span>
+                </span>
+                <div className="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter flex items-start">
                   {formatPrice(car.price)}
+                  <span className="text-2xl text-primary font-black ml-1.5">*</span>
+                </div>
+                {/* Creative Disclaimer Tooltip Container */}
+                <div className="absolute top-1/2 right-10 -translate-y-1/2 w-64 md:w-80 bg-slate-900/95 backdrop-blur-md text-white border border-white/10 rounded-2xl p-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-30 shadow-2xl translate-x-4 group-hover:translate-x-0 pointer-events-none">
+                  <div className="flex items-start gap-4">
+                     <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                        <span className="text-primary font-black">*</span>
+                     </div>
+                     <div>
+                       <span className="text-primary font-black uppercase tracking-[0.2em] block mb-2 text-[10px]">Important Notice</span>
+                       <p className="text-xs font-medium leading-relaxed text-slate-300">
+                         Price estimates fluctuate depending on the dollar exchange rate. All listed prices must include VAT.
+                       </p>
+                     </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -264,7 +284,7 @@ export default function CarDetailPage() {
               </h3>
               <div className="flex flex-col sm:flex-row gap-6">
                 <Button asChild size="xl" className="btn-primary rounded-none flex-1 py-10 text-xl font-black uppercase tracking-widest shadow-xl h-auto">
-                  <a href="tel:+27829624108">
+                  <a href="tel:+27842667178">
                     <Phone className="mr-3 h-6 w-6 text-black" />
                     Call Warehouse
                   </a>
@@ -276,7 +296,7 @@ export default function CarDetailPage() {
                   className="rounded-none border-2 border-white/20 text-white flex-1 py-10 text-xl font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all h-auto"
                 >
                   <a
-                    href={`https://wa.me/27829624108?text=${whatsappMessage}`}
+                    href={`https://wa.me/27842667178?text=${whatsappMessage}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

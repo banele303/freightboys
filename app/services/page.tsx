@@ -71,7 +71,7 @@ const serviceCategories = [
     icon: Box,
     title: "Container Solutions",
     subtitle: "Import & Export",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200",
+    image: "/new-img/container.jpeg",
     description: "I load and unload cargo into containers either into or out of the country ie import export. Professional stuffing and de-stuffing with maximum safety standards.",
     tags: ["LCL/FCL", "Import", "Export"],
     link: "/services/container-solutions",
@@ -156,6 +156,86 @@ const serviceCategories = [
     tags: ["Export", "Packing", "Container"],
     link: "/services/general-export-packing",
     price: "R 6,789.00"
+  },
+  {
+    icon: Box,
+    title: "Container Sales",
+    subtitle: "New & Used Units",
+    image: "/new-img/conteiner2.jpeg",
+    description: "We offer sales of new and used shipping containers for diverse applications, ensuring high quality and structural durability.",
+    tags: ["Sales", "Containers", "Storage"],
+    link: "/services/container-sales",
+    price: "Custom Quote"
+  },
+  {
+    icon: Package,
+    title: "Household Effects",
+    subtitle: "Local & International Moves",
+    image: "/new-img/new-img3.jpeg",
+    description: "Professional packaging and loading into containers for those leaving the country, moving within, or coming to South Africa. Includes customs clearing, transport, and unpacking.",
+    tags: ["Relocation", "Customs", "Packaging"],
+    link: "/services/household-effects",
+    price: "Custom Quote"
+  },
+  {
+    icon: Truck,
+    title: "Cross Border Transport",
+    subtitle: "All Goods & Abnormal Cargo",
+    image: "/new-img/new-img4.jpeg",
+    description: "Specialized cross-border transport for all goods, including abnormal and project cargo, ensuring safe delivery across SADC and beyond.",
+    tags: ["Cross Border", "Abnormal Cargo", "Project Cargo"],
+    link: "/services/cross-border-transport",
+    price: "Custom Quote"
+  },
+  {
+    icon: ShieldCheck,
+    title: "Seafreight Assessments",
+    subtitle: "Certified Lashing",
+    image: "/new-img/new-img5.jpeg",
+    description: "We offer seafreight assessments and lashing certificates to ensure your goods are compliant for seafreight insurance while on the water.",
+    tags: ["Assessments", "Certificates", "Insurance"],
+    link: "/services/seafreight-assessments",
+    price: "Expert Service"
+  },
+  {
+    icon: Truck,
+    title: "Local & National Transport",
+    subtitle: "Containerized & Bulk",
+    image: "/new-img/new-img6.jpeg",
+    description: "Reliable local and national transport solutions tailored for both containerized goods and bulk cargo across South Africa.",
+    tags: ["National", "Bulk Cargo", "Logistics"],
+    link: "/services/national-transport",
+    price: "Custom Quote"
+  },
+  {
+    icon: Wind,
+    title: "Container Fumigation",
+    subtitle: "Bio-security Certified",
+    image: "/new-img/VID-new.mp4",
+    description: "Professional container fumigation services to guarantee pest-free, compliant shipments meeting global agricultural standards.",
+    tags: ["Fumigation", "Certifications", "Compliance"],
+    link: "/services/container-fumigation",
+    price: "Custom Quote"
+  },
+  {
+    icon: Anchor,
+    title: "Stevedoring Services",
+    subtitle: "Port Operations",
+    image: "/new-img/new-img8.jpeg",
+    description: "We are currently in the process of applying for a full stevedoring license, expanding our port operational capabilities, vessel loading, and discharging.",
+    tags: ["Stevedoring", "Operations", "Pending"],
+    link: "/services/stevedoring",
+    price: "Coming Soon"
+  },
+  {
+    icon: Wrench,
+    title: "Equipment Hire",
+    subtitle: "Heavy Machinery & Tools",
+    image: "/new-img/equipment.jpeg",
+    description: "We also have an equipment hire option available for specialized lifting, transport, and site operations with flexible rental terms.",
+    tags: ["Equipment", "Hire", "Machinery"],
+    link: "/services/equipment-hire",
+    price: "Daily & Weekly Rates"
   }
 ];
 
@@ -200,23 +280,34 @@ export default function ServicesPage() {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
             {serviceCategories.map((category, index) => (
-              <motion.div
-                key={category.title}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeInUp}
-                className="group"
-              >
+              <Link href={category.link || "/contact"} key={category.title} className="block group cursor-pointer">
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeInUp}
+                  className="bg-transparent rounded-3xl overflow-hidden hover:bg-slate-50 transition-all duration-500 border border-transparent hover:border-slate-100 flex flex-col h-full"
+                >
                 <div className="relative aspect-[16/10] rounded-[48px] overflow-hidden bg-slate-100 mb-12 group-hover:shadow-3xl group-hover:-translate-y-4 transition-all duration-700 shadow-2xl shadow-black/5 p-[2px] pb-0">
                   <div className="relative w-full h-full rounded-[32px] overflow-hidden">
-                    <Image 
-                      src={category.image} 
-                      alt={category.title} 
-                      fill 
-                      unoptimized
-                      className="object-cover group-hover:scale-105 transition-transform duration-1000" 
-                    />
+                    {category.image.endsWith('.mp4') ? (
+                      <video 
+                        src={category.image}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-1000"
+                      />
+                    ) : (
+                      <Image 
+                        src={category.image} 
+                        alt={category.title} 
+                        fill 
+                        unoptimized
+                        className="object-cover group-hover:scale-105 transition-transform duration-1000" 
+                      />
+                    )}
                   </div>
                   <div className="absolute top-8 right-8 w-14 h-14 bg-white/90 backdrop-blur-md rounded-2xl flex items-center justify-center text-slate-900 group-hover:bg-primary transition-colors z-10">
                     <category.icon className="h-6 w-6" />
@@ -231,19 +322,37 @@ export default function ServicesPage() {
                        ))}
                     </div>
                     {category.price && (
-                      <span className="text-sm font-black text-[#2563eb]">{category.price}</span>
+                      <div className="relative group/priceToolTip flex items-start cursor-help">
+                        <span className="text-sm font-black text-[#2563eb]">{category.price}</span>
+                        {category.price.includes("R") && (
+                          <span className="text-xs text-[#2563eb] font-black ml-0.5">*</span>
+                        )}
+                        
+                        {/* Pricing Tooltip */}
+                        {category.price.includes("R") && (
+                          <div className="absolute top-full right-0 mt-2 w-56 bg-slate-900/95 backdrop-blur-md text-white border border-white/10 rounded-2xl p-4 opacity-0 invisible group-hover/priceToolTip:opacity-100 group-hover/priceToolTip:visible transition-all duration-300 z-50 shadow-2xl translate-y-2 group-hover/priceToolTip:translate-y-0 pointer-events-none text-left">
+                            <span className="text-[#2563eb] font-black uppercase tracking-[0.2em] block mb-1 text-[8px]">Notice</span>
+                            <p className="text-[10px] font-medium leading-relaxed text-slate-300">
+                              Price estimates fluctuate depending on the dollar exchange rate. All listed prices must include VAT.
+                            </p>
+                            {/* Tooltip Arrow */}
+                            <div className="absolute -top-2 right-6 w-4 h-4 bg-slate-900/95 border-t border-l border-white/10 rotate-45 transform pointer-events-none"></div>
+                          </div>
+                        )}
+                      </div>
                     )}
                   </div>
                   <h3 className="text-4xl font-black uppercase tracking-tight text-slate-900 mb-6">{category.title}</h3>
                   <p className="text-slate-600 text-lg font-medium leading-relaxed mb-10 italic">{category.description}</p>
                   
-                  <Button asChild variant="ghost" className="p-0 h-auto text-slate-900 font-black uppercase tracking-widest text-[11px] group/btn hover:bg-transparent">
-                    <Link href={category.link || "/contact"} className="flex items-center gap-2">
+                  <Button variant="ghost" className="p-0 h-auto text-slate-900 font-black uppercase tracking-widest text-[11px] group/btn hover:bg-transparent pointer-events-none">
+                    <div className="flex items-center gap-2">
                       {category.link === "/services" ? "Get Quote" : "Explore Details"} <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-2 transition-transform" />
-                    </Link>
+                    </div>
                   </Button>
                 </div>
               </motion.div>
+             </Link>
             ))}
           </div>
         </div>
@@ -291,7 +400,7 @@ export default function ServicesPage() {
                 </a>
              </Button>
              <Button asChild size="xl" variant="outline" className="h-20 px-12 rounded-[24px] border-4 border-slate-100 text-xl font-black uppercase tracking-widest hover:bg-slate-900 hover:text-white transition-all">
-                <a href="mailto:info@freightboys.co.za" className="flex items-center gap-3">
+                <a href="mailto:Freightboys@gmail.com" className="flex items-center gap-3">
                    <MessageCircle className="h-6 w-6" /> Email Us
                 </a>
              </Button>

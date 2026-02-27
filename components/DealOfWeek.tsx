@@ -85,11 +85,23 @@ export default function DealOfWeek({ car }: { car: CarType }) {
             <motion.div 
                animate={{ y: [0, -10, 0] }}
                transition={{ duration: 4, repeat: Infinity }}
-               className="absolute -bottom-6 -right-2 md:-bottom-10 md:-right-10 glass-premium p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border-accent/20 z-20"
+               className="absolute -bottom-6 -right-2 md:-bottom-10 md:-right-10 glass-premium p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border-accent/20 z-20 group/deal flex flex-col items-center"
             >
-               <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-accent mb-1 block">Exclusive Offer</span>
-               <div className="text-3xl md:text-5xl font-display font-black tracking-tighter gradient-text-gold">
+               <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest text-accent mb-1 flex items-center gap-1.5 cursor-help">
+                 Exclusive Offer
+                 <span className="bg-primary/20 text-primary w-4 h-4 rounded-full flex items-center justify-center font-black">!</span>
+               </span>
+               <div className="text-3xl md:text-5xl font-display font-black tracking-tighter gradient-text-gold flex items-start">
                  {formatPrice(car.price)}
+                 <span className="text-lg text-primary font-black ml-1">*</span>
+               </div>
+
+               {/* Modern Tooltip Notice */}
+               <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-60 md:w-72 bg-slate-900/95 backdrop-blur-xl text-white rounded-2xl p-4 md:p-5 opacity-0 invisible group-hover/deal:opacity-100 group-hover/deal:visible transition-all duration-300 z-50 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] border border-white/5 pointer-events-none transform translate-y-3 group-hover/deal:translate-y-0 text-left">
+                  <span className="text-primary font-black uppercase tracking-[0.2em] block mb-1 text-[8px] md:text-[10px]">Pricing Disclaimer</span>
+                  <p className="text-[10px] md:text-xs font-medium leading-relaxed text-slate-300">
+                    Price estimates fluctuate depending on the dollar exchange rate. All shown prices must include VAT.
+                  </p>
                </div>
             </motion.div>
           </motion.div>
@@ -138,7 +150,7 @@ export default function DealOfWeek({ car }: { car: CarType }) {
 
             <div className="flex flex-col sm:flex-row gap-4 pt-6">
                <Button asChild size="xl" className="w-full sm:w-auto btn-primary rounded-full px-10 flex-1">
-                 <a href={`https://wa.me/27662011492?text=Hi, I'm interested in the ${car.year} ${car.make} ${car.model} Deal of the Week!`}>
+                 <a href={`https://wa.me/27842667178?text=Hi, I'm interested in the ${car.year} ${car.make} ${car.model} Deal of the Week!`}>
                    <MessageCircle className="mr-2 h-5 w-5" />
                    Secure This Deal
                  </a>

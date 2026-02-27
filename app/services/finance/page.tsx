@@ -91,7 +91,7 @@ export default function DeliveryPage() {
               className="flex flex-col sm:flex-row items-center justify-center gap-6"
             >
               <Button asChild size="xl" className="btn-primary rounded-none px-12 py-8 text-xl font-black uppercase tracking-widest shadow-2xl shadow-primary/20 h-auto">
-                <a href="https://wa.me/27829624108" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/27842667178" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="mr-3 h-6 w-6 text-black" />
                   Request Delivery
                 </a>
@@ -102,7 +102,7 @@ export default function DeliveryPage() {
                 variant="outline"
                 className="rounded-none px-12 py-8 text-xl font-black uppercase tracking-widest border-2 border-slate-200 hover:bg-slate-50 transition-all h-auto"
               >
-                <a href="tel:+27829624108">
+                <a href="tel:+27842667178">
                   <Phone className="mr-3 h-6 w-6" />
                   Track My Order
                 </a>
@@ -242,7 +242,7 @@ export default function DeliveryPage() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-10">
               <Button asChild size="xl" className="btn-primary rounded-none px-20 py-10 h-auto text-2xl font-black uppercase tracking-[0.2em] w-full sm:w-auto shadow-xl shadow-primary/20">
-                <a href="https://wa.me/27829624108" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/27842667178" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="mr-4 h-8 w-8 text-black" />
                   Order Parts
                 </a>

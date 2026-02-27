@@ -57,6 +57,7 @@ export default function Navbar() {
     { title: "Road Freight", subtitle: "Local & Cross-Border", href: "/services/road-freight", icon: Truck },
     { title: "Container Solutions", subtitle: "Stuffing & Unpacking", href: "/services/container-solutions", icon: Box },
     { title: "Vehicle Freight", subtitle: "Ocean Freight Experts", href: "/services/vehicle-ocean-freight", icon: Anchor },
+    { title: "Specialized Services", subtitle: "Exclusive Deliveries", href: "/services/specialized", icon: Truck },
   ];
 
   return (
@@ -78,12 +79,12 @@ export default function Navbar() {
             </div>
           </div>
           <div className="flex items-center gap-6">
-            <a href="tel:+27621328721" className="flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors">
+            <a href="tel:+27842667178" className="flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors">
               <Phone className="w-3 h-3" />
-              <span>Call: +27 (0) 62 132 8721</span>
+              <span>Call: +27 (0) 84 266 7178</span>
             </a>
             <div className="w-[1px] h-3 bg-slate-200" />
-            <a href="https://wa.me/27621328721" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[#25D366] hover:opacity-80 transition-all">
+            <a href="https://wa.me/27842667178" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[#25D366] hover:opacity-80 transition-all">
               <WhatsAppIcon className="w-4 h-4" />
               <span className="font-black">WhatsApp Now</span>
             </a>
@@ -151,11 +152,11 @@ export default function Navbar() {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              <Link href="/global" className={cn(
+              <Link href="/gallery" className={cn(
                 "px-5 py-3 rounded-full text-[11px] font-black uppercase tracking-widest transition-all",
-                pathname === "/global" ? "bg-[#2563eb] text-white" : "text-slate-500 hover:text-slate-900 hover:bg-slate-50"
+                pathname === "/gallery" ? "bg-[#2563eb] text-white" : "text-slate-500 hover:text-slate-900 hover:bg-slate-50"
               )}>
-                Global Reach
+                Gallery
               </Link>
 
               <Link href="/about" className={cn(
@@ -181,7 +182,7 @@ export default function Navbar() {
                  <span className="text-[10px] font-black text-[#2563eb] uppercase tracking-widest">24/7 Live Status</span>
                  <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-                    <span className="text-[11px] font-bold text-slate-900">+27 62 132 8721</span>
+                    <span className="text-[11px] font-bold text-slate-900">+27 84 266 7178</span>
                  </div>
               </div>
               <div className="flex items-center gap-3">
@@ -250,8 +251,8 @@ export default function Navbar() {
                     <Link href="/about" onClick={() => setIsOpen(false)} className="px-6 py-4 rounded-2xl bg-slate-50 font-black uppercase tracking-widest text-xs flex justify-between items-center group">
                       About Us <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
                     </Link>
-                    <Link href="/global" onClick={() => setIsOpen(false)} className="px-6 py-4 rounded-2xl bg-slate-50 font-black uppercase tracking-widest text-xs flex justify-between items-center group">
-                      Global Network <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                    <Link href="/gallery" onClick={() => setIsOpen(false)} className="px-6 py-4 rounded-2xl bg-slate-50 font-black uppercase tracking-widest text-xs flex justify-between items-center group">
+                      Gallery <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
                     </Link>
                     <Link href="/contact" onClick={() => setIsOpen(false)} className="px-6 py-4 rounded-2xl bg-slate-50 font-black uppercase tracking-widest text-xs flex justify-between items-center group">
                       Contact <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
@@ -300,7 +301,7 @@ export default function Navbar() {
                   </div>
 
                   <div className="pt-12 flex flex-col items-center gap-4">
-                    <a href="https://wa.me/27621328721" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-[#25D366]">
+                    <a href="https://wa.me/27842667178" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-[#25D366]">
                       <WhatsAppIcon className="w-6 h-6" />
                       <span className="font-black text-sm uppercase tracking-widest">Chat on WhatsApp</span>
                     </a>

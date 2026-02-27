@@ -159,13 +159,13 @@ export default function ContactPage() {
                       <h4 className="text-2xl font-black text-slate-900 italic">+27 84 266 7178</h4>
                    </div>
                 </Link>
-                <Link href="mailto:info@freightboys.co.za" className="group p-8 bg-white border border-slate-100 rounded-[32px] flex items-center gap-8 hover:shadow-2xl transition-all">
+                <Link href="mailto:Freightboys@gmail.com" className="group p-8 bg-white border border-slate-100 rounded-[32px] flex items-center gap-8 hover:shadow-2xl transition-all">
                    <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center group-hover:bg-primary transition-colors">
                       <Mail className="h-7 w-7 text-slate-900" />
                    </div>
                    <div>
                       <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Email Inquiry</p>
-                      <h4 className="text-2xl font-black text-slate-900 italic">info@freightboys.co.za</h4>
+                      <h4 className="text-2xl font-black text-slate-900 italic">Freightboys@gmail.com</h4>
                    </div>
                 </Link>
               </div>
@@ -231,7 +231,7 @@ export default function ContactPage() {
                             <input 
                               type="email" 
                               required
-                              placeholder="e.g. info@freightboys.co.za"
+                              placeholder="e.g. Freightboys@gmail.com"
                               className="w-full h-18 px-8 bg-white/5 border border-white/10 rounded-3xl text-white font-bold focus:ring-4 focus:ring-primary/20 focus:border-primary outline-none transition-all placeholder:text-white/10"
                               value={formData.email}
                               onChange={(e) => setFormData({...formData, email: e.target.value})}
