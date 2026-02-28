@@ -71,7 +71,7 @@ const heroSlides = [
     title: "ROAD",
     subtitle: "FREIGHT",
     desc: "Reliable road transportation solutions for local and cross-border cargo movement throughout Southern Africa.",
-    image: "/newpn.png",
+    image: "/packing2.png",
     tag: "Global Logistics",
     accent: "text-[#2563eb]"
   },
@@ -274,7 +274,7 @@ export default function Home() {
             {/* LEFT SIDEBAR — Logistics Visuals */}
             <div className="hidden lg:flex col-span-2 flex-col gap-2">
               {[
-                "/from-japan.png",
+                "/new-img/engine1.jpeg",
                 "/neww.png",
               ].map((img, i) => (
                 <div key={i} className="relative w-full aspect-[3/4] rounded-xl overflow-hidden bg-white shadow-sm group cursor-pointer">
@@ -533,7 +533,7 @@ export default function Home() {
         {/* Background Image Overlay */}
         <div className="absolute inset-0 z-0 opacity-20">
           <Image 
-            src="/hero-deco.jpg" 
+            src="/vintage2.png" 
             alt="Background" 
             fill 
             className="object-cover grayscale"

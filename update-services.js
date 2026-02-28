@@ -1,4 +1,29 @@
-"use client";
+const fs = require('fs');
+const path = require('path');
+
+const servicesDir = path.join(__dirname, 'app/services');
+
+function toTitleCase(str) {
+  return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+}
+
+function getIconForService(name) {
+  if (name.includes('container') || name.includes('packing')) return 'Package';
+  if (name.includes('transport') || name.includes('freight')) return 'Truck';
+  if (name.includes('vehicle') || name.includes('car')) return 'Car';
+  if (name.includes('sea') || name.includes('boat')) return 'Ship';
+  if (name.includes('customs') || name.includes('finance')) return 'FileText';
+  if (name.includes('engine') || name.includes('workshop')) return 'Wrench';
+  return 'Briefcase';
+}
+
+function generatePageContent(dirName) {
+  const title = toTitleCase(dirName);
+  const firstWord = title.split(' ')[0];
+  const restWords = title.split(' ').slice(1).join(' ') || 'Services';
+  const icon = getIconForService(dirName);
+
+  return `"use client";
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -42,42 +67,42 @@ const features = [
   {
     icon: ShieldCheck,
     title: "Expert Handling",
-    description: "Our dedicated team ensures the highest level of care and precision for all your road freight requirements.",
+    description: "Our team ensures the highest level of care and precision for all ${title.toLowerCase()} requirements.",
   },
   {
     icon: Award,
     title: "Industry Leading",
-    description: "We set the standard for quality and reliability across the logistics and freight sector.",
+    description: "We set the standard for quality and reliability in the logistics and freight sector.",
   },
   {
     icon: Zap,
     title: "Fast Turnaround",
-    description: "Advanced, optimized processes guarantee swift and efficient execution of your requests.",
+    description: "Optimized processes guarantee swift and efficient execution of your requests.",
   },
   {
     icon: CheckCircle,
     title: "Fully Compliant",
-    description: "All operations are carried out strictly according to international and local regulatory standards.",
+    description: "All operations are carried out strictly according to international and local regulations.",
   },
 ];
 
 const galleryImages = [
-  { src: "/new-img/new-img4.jpeg", alt: "Road Freight Operations 1" },
-  { src: "/new-img/new-img6.jpeg", alt: "Road Freight Operations 2" },
-  { src: "/new-img/new-img8.jpeg", alt: "Road Freight Operations 3" },
+  { src: "/new-img/new-img4.jpeg", alt: "${title} Operations 1" },
+  { src: "/new-img/new-img6.jpeg", alt: "${title} Operations 2" },
+  { src: "/new-img/new-img8.jpeg", alt: "${title} Operations 3" },
 ];
 
-export default function RoadFreightPage() {
+export default function ${dirName.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('')}Page() {
   return (
     <div className="min-h-screen bg-white">
       {/* Dynamic Hero Slider */}
       <ServiceHero
-        title="Road"
-        subtitle="Freight"
-        description="Comprehensive road freight services tailored to meet your most demanding logistics and operational needs. We prioritize speed, security, and elite precision."
+        title="${firstWord}"
+        subtitle="${restWords}"
+        description="Comprehensive ${title.toLowerCase()} services tailored to meet your most demanding logistics and operational needs. We prioritize speed, security, and precision."
         tag="Premium Freight Services"
-        images={["/neww.png", "/from-japan.png", "/packing2.png"]}
-        icon={Truck}
+        images={["/new-img/new-img4.jpeg", "/new-img/new-img6.jpeg", "/new-img/new-img8.jpeg"]}
+        icon={${icon}}
       />
 
       {/* Gallery Section */}
@@ -106,7 +131,7 @@ export default function RoadFreightPage() {
               variants={fadeInUp}
               className="text-lg md:text-xl text-slate-500 font-medium italic max-w-2xl mx-auto"
             >
-              Browse a snapshot of our road freight processes in action, handled meticulously by our expert logistics personnel.
+              Browse a snapshot of our ${title.toLowerCase()} processes in action, handled by our expert logistics personnel.
             </motion.p>
           </motion.div>
 
@@ -161,7 +186,7 @@ export default function RoadFreightPage() {
               variants={fadeInUp}
               className="text-lg md:text-2xl text-slate-500 font-medium italic max-w-3xl mx-auto"
             >
-              We provide the highest caliber service, prioritizing efficiency and performance for every operational step.
+              We provide the highest caliber service, prioritizing efficiency and performance for every operation.
             </motion.p>
           </motion.div>
 
@@ -237,75 +262,6 @@ export default function RoadFreightPage() {
         </div>
       </section>
 
-      {/* Location Section */}
-      <section className="py-24 md:py-32">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={staggerContainer}
-            >
-              <motion.span
-                variants={fadeInUp}
-                className="text-[#2563eb] font-black uppercase tracking-[0.3em] text-[11px] block mb-6"
-              >
-                Visit Us
-              </motion.span>
-              <motion.h2
-                variants={fadeInUp}
-                className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 mb-8 uppercase leading-none"
-              >
-                Freightboys <br />
-                <span className="text-[#2563eb] italic">Operations.</span>
-              </motion.h2>
-              <motion.p
-                variants={fadeInUp}
-                className="text-lg text-slate-500 font-medium italic leading-relaxed mb-8"
-              >
-                Based in South Africa, we coordinate local and international logistics, bringing you seamless cross-border transport, customs clearing, and efficient handling for all specialized requests.
-              </motion.p>
-              <motion.div variants={fadeInUp} className="space-y-4">
-                {[
-                  { icon: MapPin, label: "South Africa & Regional Borders" },
-                  { icon: Gauge, label: "Fast clearance & zero delays" },
-                  { icon: ShieldCheck, label: "Secure handling & fully bonded" },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-[#2563eb] shadow-sm">
-                      <item.icon className="w-6 h-6" />
-                    </div>
-                    <span className="font-bold text-slate-700 text-sm uppercase tracking-tight">{item.label}</span>
-                  </div>
-                ))}
-              </motion.div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="relative aspect-[4/3] rounded-[48px] overflow-hidden shadow-2xl"
-            >
-              <Image
-                src="/new-img/equipment.jpeg"
-                alt="Freightboys Logistics Hub"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-              <div className="absolute bottom-8 left-8 right-8">
-                <div className="bg-white/90 backdrop-blur-md rounded-2xl p-6">
-                  <p className="font-black text-slate-900 text-lg uppercase tracking-tight">Logistics Hub</p>
-                  <p className="text-sm text-slate-500 font-medium italic">South Africa — Custom Solutions</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-24 md:py-40 bg-white">
         <div className="container mx-auto px-6 text-center">
@@ -319,7 +275,7 @@ export default function RoadFreightPage() {
                Enhance Your <span className="gradient-text italic">Logistics.</span>
             </h2>
             <p className="text-lg md:text-2xl text-slate-500 font-medium mb-16 max-w-3xl mx-auto italic leading-relaxed">
-               Get in touch with us today to discuss your specific requirements and receive a customized plan for our road freight service.
+               Get in touch with us today to discuss your specific requirements and receive a customized plan for our ${title.toLowerCase()} service.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-center">
               <Button asChild size="xl" className="h-20 px-12 rounded-[24px] btn-primary-new text-xl shadow-2xl">
@@ -339,3 +295,30 @@ export default function RoadFreightPage() {
     </div>
   );
 }
+`;
+}
+
+const ignoreList = ['engines-gearboxes', 'page.tsx']; // already completed or is main
+
+const directories = fs.readdirSync(servicesDir, { withFileTypes: true })
+  .filter(dirent => dirent.isDirectory())
+  .map(dirent => dirent.name);
+
+for (const dir of directories) {
+  if (ignoreList.includes(dir)) continue;
+
+  const pagePath = path.join(servicesDir, dir, 'page.tsx');
+  if (fs.existsSync(pagePath)) {
+    console.log('Updating', pagePath);
+    const content = generatePageContent(dir);
+    fs.writeFileSync(pagePath, content, 'utf8');
+  } else {
+    // create it? user said all services pages.
+    console.log('Creating', pagePath);
+    fs.mkdirSync(path.join(servicesDir, dir), { recursive: true });
+    const content = generatePageContent(dir);
+    fs.writeFileSync(pagePath, content, 'utf8');
+  }
+}
+
+console.log('Done updating services pages.');

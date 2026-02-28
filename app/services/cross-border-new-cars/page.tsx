@@ -6,16 +6,24 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   ShieldCheck,
-  Zap,
   CheckCircle,
-  Phone,
   MessageCircle,
-  Car,
-  Globe,
+  Zap,
+  MapPin,
   Award,
   ArrowRight,
-  ZapIcon
+  Wrench,
+  Cpu,
+  Gauge,
+  Phone,
+  Package,
+  Truck,
+  Car,
+  Ship,
+  FileText,
+  Briefcase
 } from "lucide-react";
+import ServiceHero from "@/components/ServiceHero";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -32,106 +40,103 @@ const staggerContainer = {
 
 const features = [
   {
-    icon: Award,
-    title: "Brand New 2025 Models",
-    description: "Access to the latest 2025 automotive models, specifically sourced for cross-border requirements.",
-  },
-  {
-    icon: Globe,
-    title: "SADC Cross-Border Ready",
-    description: "Vehicles configured and documented for seamless export out of South Africa to SADC regions.",
-  },
-  {
     icon: ShieldCheck,
-    title: "Full Export Compliance",
-    description: "Comprehensive handling of all export permits, customs documentation, and logistics.",
+    title: "Expert Handling",
+    description: "Our dedicated team ensures the highest level of care and precision for all your cross border new cars requirements.",
   },
   {
-    icon: ZapIcon,
-    title: "Premium Logistics",
-    description: "High-end transport solutions to ensure your brand new vehicle reaches its destination in showroom condition.",
+    icon: Award,
+    title: "Industry Leading",
+    description: "We set the standard for quality and reliability across the logistics and freight sector.",
   },
+  {
+    icon: Zap,
+    title: "Fast Turnaround",
+    description: "Advanced, optimized processes guarantee swift and efficient execution of your requests.",
+  },
+  {
+    icon: CheckCircle,
+    title: "Fully Compliant",
+    description: "All operations are carried out strictly according to international and local regulatory standards.",
+  },
+];
+
+const galleryImages = [
+  { src: "/new-img/new-img4.jpeg", alt: "Cross Border New Cars Operations 1" },
+  { src: "/new-img/new-img6.jpeg", alt: "Cross Border New Cars Operations 2" },
+  { src: "/new-img/new-img8.jpeg", alt: "Cross Border New Cars Operations 3" },
 ];
 
 export default function CrossBorderNewCarsPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero */}
-      <section className="relative h-[80vh] min-h-[600px] flex items-center overflow-hidden bg-[#0a0a0a]">
-        <div className="absolute inset-0 z-0">
-          <Image 
-            src="/from-jp2.png" 
-            alt="New Cars Background" 
-            fill 
-            className="object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-[#0a0a0a]" />
-        </div>
+      {/* Dynamic Hero Slider */}
+      <ServiceHero
+        title="Cross"
+        subtitle="Border New Cars"
+        description="Comprehensive cross border new cars services tailored to meet your most demanding logistics and operational needs. We prioritize speed, security, and elite precision."
+        tag="Premium Freight Services"
+        images={["/neww.png", "/from-japan.png", "/packing2.png"]}
+        icon={Car}
+      />
 
-        <div className="container mx-auto px-6 relative z-10 pt-20">
+      {/* Gallery Section */}
+      <section className="py-24 md:py-32 bg-[#f8fafc]">
+        <div className="container mx-auto px-6">
           <motion.div
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true }}
             variants={staggerContainer}
-            className="max-w-4xl mx-auto text-center"
+            className="text-center mb-16"
           >
             <motion.span
               variants={fadeInUp}
-              className="inline-flex items-center gap-2 px-6 py-2 bg-[#2563eb] text-white text-[10px] font-black uppercase tracking-widest mb-8 shadow-2xl shadow-blue-500/40 rounded-full"
+              className="text-[#2563eb] font-black uppercase tracking-[0.3em] text-[11px] block mb-4"
             >
-              <Award className="h-4 w-4" />
-              PREMIUM EXPORT SERVICE
+              Our Operations
             </motion.span>
-            <motion.h1
+            <motion.h2
               variants={fadeInUp}
-              className="text-6xl md:text-9xl font-black tracking-tighter leading-[0.85] text-white mb-10 uppercase italic"
+              className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 mb-6 uppercase"
             >
-              Brand New <br />
-              <span className="text-[#2563eb]">2025 Model</span>
-            </motion.h1>
+              Premium <span className="text-[#2563eb] italic">Execution.</span>
+            </motion.h2>
             <motion.p
               variants={fadeInUp}
-              className="text-lg md:text-2xl text-slate-300 max-w-2xl mx-auto mb-10 font-medium leading-relaxed drop-shadow-lg"
+              className="text-lg md:text-xl text-slate-500 font-medium italic max-w-2xl mx-auto"
             >
-               Elite sourcing and logistics for brand new 2025 model cars specifically for cross-border use out of South Africa.
+              Browse a snapshot of our cross border new cars processes in action, handled meticulously by our expert logistics personnel.
             </motion.p>
-            <motion.div
-              variants={fadeInUp}
-              className="flex flex-col items-center mb-12 relative group w-fit mx-auto"
-            >
-               <span className="text-lg text-slate-500 font-bold line-through mb-2 tracking-widest opacity-50 italic">R 3,000,000.00</span>
-               <div className="text-4xl md:text-6xl font-black text-[#2563eb] flex items-center justify-center gap-2">
-                 R 2,999,999.00 <span className="text-lg text-slate-400 font-medium italic">/ Starting Price</span>
-                 <span className="text-2xl text-white font-black cursor-help hover:text-[#ef4444] transition-colors ml-2">*</span>
-               </div>
+          </motion.div>
 
-               {/* Dark Theme Pricing Tooltip */}
-               <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-60 md:w-72 bg-[#0a0a0a]/95 backdrop-blur-xl text-white rounded-2xl p-4 md:p-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] border border-white/10 pointer-events-none transform translate-y-3 group-hover:translate-y-0 text-left">
-                 <span className="text-[#2563eb] font-black uppercase tracking-[0.2em] block mb-1 text-[8px] md:text-[10px]">Important Notice</span>
-                 <p className="text-[10px] md:text-xs font-medium leading-relaxed text-slate-300 font-sans tracking-normal">
-                   Price estimates fluctuate depending on the dollar exchange rate. All listed prices must include VAT.
-                 </p>
-                 {/* Tooltip Arrow */}
-                 <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#0a0a0a]/95 border-t border-l border-white/10 rotate-45 transform pointer-events-none"></div>
-               </div>
-            </motion.div>
-            <motion.div
-              variants={fadeInUp}
-              className="flex flex-col sm:flex-row items-center justify-center gap-6"
-            >
-              <Button asChild size="xl" className="h-20 px-12 rounded-[24px] bg-[#2563eb] hover:bg-[#1d4ed8] text-white text-xl shadow-2xl shadow-blue-500/20 border border-white/10 group overflow-hidden relative font-black uppercase tracking-widest">
-                <Link href="/contact" className="flex items-center gap-3">
-                  <span className="relative z-10">Inquire for Stock</span>
-                  <ArrowRight className="h-6 w-6 relative z-10 group-hover:translate-x-2 transition-transform" />
-                  <motion.div 
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: "100%" }}
-                    transition={{ duration: 0.5 }}
-                    className="absolute inset-0 bg-white/20 skew-x-[-20deg]"
-                  />
-                </Link>
-              </Button>
-            </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-3 gap-6"
+          >
+            {galleryImages.map((img, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className="relative aspect-[4/3] rounded-[32px] overflow-hidden shadow-2xl shadow-black/10 group"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <span className="bg-white/90 backdrop-blur-md text-slate-900 text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full">
+                    {img.alt}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
@@ -150,13 +155,13 @@ export default function CrossBorderNewCarsPage() {
               variants={fadeInUp}
               className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 mb-6 uppercase"
             >
-              Elite <span className="text-[#2563eb] italic">Export.</span>
+              Quality <span className="text-[#2563eb] italic">Assured.</span>
             </motion.h2>
             <motion.p
               variants={fadeInUp}
               className="text-lg md:text-2xl text-slate-500 font-medium italic max-w-3xl mx-auto"
             >
-              We facilitate the movement of premium brand new vehicles across South African borders with a focus on luxury, compliance, and speed.
+              We provide the highest caliber service, prioritizing efficiency and performance for every operational step.
             </motion.p>
           </motion.div>
 
@@ -188,22 +193,23 @@ export default function CrossBorderNewCarsPage() {
         </div>
       </section>
 
-      {/* Trust Section */}
+      {/* Overview Section */}
       <section className="py-24 md:py-40 bg-slate-900 text-white relative overflow-hidden rounded-[60px] mx-6">
         <div className="absolute left-0 bottom-0 w-64 h-64 bg-blue-500/10 blur-[100px]" />
+        <div className="absolute right-0 top-0 w-64 h-64 bg-blue-500/5 blur-[100px]" />
         <div className="container mx-auto px-6">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="max-w-4xl mx-auto"
+            className="max-w-5xl mx-auto"
           >
             <motion.h2
               variants={fadeInUp}
               className="text-4xl md:text-7xl font-black tracking-tighter mb-12 text-center uppercase leading-none"
             >
-              The Luxury <span className="text-[#2563eb] italic">Experience.</span>
+              Service <span className="text-[#2563eb] italic">Highlights.</span>
             </motion.h2>
             <motion.div
               variants={fadeInUp}
@@ -211,14 +217,14 @@ export default function CrossBorderNewCarsPage() {
             >
               <div className="grid md:grid-cols-2 gap-8">
                 {[
-                   "Sourcing latest 2025 specs",
-                   "Full export permit acquisition",
-                   "SARPCCO clearance assistance",
-                   "Specialized low-bed transport",
-                   "Transit insurance coverage",
-                   "Diplomatic & corporate solutions",
-                   "SADC regional delivery",
-                   "Showroom-to-door delivery",
+                   "Professional implementation",
+                   "End-to-end logistics solutions",
+                   "Certified operators and specialists",
+                   "Real-time operational tracking",
+                   "Comprehensive risk management",
+                   "Scalable to project requirements",
+                   "Customer-first service approach",
+                   "Competitive and transparent pricing",
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-4 group">
                     <CheckCircle className="h-6 w-6 text-[#2563eb] flex-shrink-0" />
@@ -228,6 +234,75 @@ export default function CrossBorderNewCarsPage() {
               </div>
             </motion.div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Location Section */}
+      <section className="py-24 md:py-32">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+            >
+              <motion.span
+                variants={fadeInUp}
+                className="text-[#2563eb] font-black uppercase tracking-[0.3em] text-[11px] block mb-6"
+              >
+                Visit Us
+              </motion.span>
+              <motion.h2
+                variants={fadeInUp}
+                className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 mb-8 uppercase leading-none"
+              >
+                Freightboys <br />
+                <span className="text-[#2563eb] italic">Operations.</span>
+              </motion.h2>
+              <motion.p
+                variants={fadeInUp}
+                className="text-lg text-slate-500 font-medium italic leading-relaxed mb-8"
+              >
+                Based in South Africa, we coordinate local and international logistics, bringing you seamless cross-border transport, customs clearing, and efficient handling for all specialized requests.
+              </motion.p>
+              <motion.div variants={fadeInUp} className="space-y-4">
+                {[
+                  { icon: MapPin, label: "South Africa & Regional Borders" },
+                  { icon: Gauge, label: "Fast clearance & zero delays" },
+                  { icon: ShieldCheck, label: "Secure handling & fully bonded" },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-[#2563eb] shadow-sm">
+                      <item.icon className="w-6 h-6" />
+                    </div>
+                    <span className="font-bold text-slate-700 text-sm uppercase tracking-tight">{item.label}</span>
+                  </div>
+                ))}
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative aspect-[4/3] rounded-[48px] overflow-hidden shadow-2xl"
+            >
+              <Image
+                src="/new-img/equipment.jpeg"
+                alt="Freightboys Logistics Hub"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div className="absolute bottom-8 left-8 right-8">
+                <div className="bg-white/90 backdrop-blur-md rounded-2xl p-6">
+                  <p className="font-black text-slate-900 text-lg uppercase tracking-tight">Logistics Hub</p>
+                  <p className="text-sm text-slate-500 font-medium italic">South Africa — Custom Solutions</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -241,15 +316,15 @@ export default function CrossBorderNewCarsPage() {
             className="max-w-6xl mx-auto"
           >
             <h2 className="text-4xl md:text-7xl font-black tracking-tighter mb-10 text-slate-900 leading-tight uppercase">
-               Premium <span className="gradient-text italic">Sourcing.</span>
+               Enhance Your <span className="gradient-text italic">Logistics.</span>
             </h2>
             <p className="text-lg md:text-2xl text-slate-500 font-medium mb-16 max-w-3xl mx-auto italic leading-relaxed">
-               Acquire and export the latest 2025 models with Freightboys' unmatched cross-border logistical expertise.
+               Get in touch with us today to discuss your specific requirements and receive a customized plan for our cross border new cars service.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-center">
               <Button asChild size="xl" className="h-20 px-12 rounded-[24px] btn-primary-new text-xl shadow-2xl">
                 <Link href="/contact" className="flex items-center gap-3">
-                  <MessageCircle className="h-6 w-6" /> Start Order Quote
+                  <MessageCircle className="h-6 w-6" /> Contact Us
                 </Link>
               </Button>
               <Button asChild size="xl" variant="outline" className="h-20 px-12 rounded-[24px] border-4 border-slate-100 text-xl font-black uppercase tracking-widest hover:bg-slate-900 hover:text-white transition-all">

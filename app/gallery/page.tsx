@@ -28,7 +28,7 @@ const galleryItems = [
   { type: "image", src: "/new-img/new-img4.jpeg", alt: "Household Relocations", category: "Logistics" },
   { type: "image", src: "/new-img/new-img7.jpeg", alt: "Fumigation Services", category: "Operations" },
   { type: "image", src: "/new-img/new-img9.jpeg", alt: "Cargo Inspection", category: "Logistics" },
-  { type: "image", src: "/new-img/newpn.png", alt: "Container Solutions", category: "Containers" },
+  { type: "image", src: "/new-img/equipment.jpeg", alt: "Container Solutions", category: "Containers" },
 ];
 
 export default function GalleryPage() {

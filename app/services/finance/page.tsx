@@ -3,16 +3,27 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 import {
-  Truck,
-  CheckCircle,
-  Phone,
-  MessageCircle,
-  MapPin,
-  Clock,
   ShieldCheck,
-  Globe,
+  CheckCircle,
+  MessageCircle,
+  Zap,
+  MapPin,
+  Award,
+  ArrowRight,
+  Wrench,
+  Cpu,
+  Gauge,
+  Phone,
+  Package,
+  Truck,
+  Car,
+  Ship,
+  FileText,
+  Briefcase
 } from "lucide-react";
+import ServiceHero from "@/components/ServiceHero";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -27,92 +38,110 @@ const staggerContainer = {
   },
 };
 
-const benefits = [
-  {
-    icon: Globe,
-    title: "Nationwide Reach",
-    description: "Express shipping to all provinces across South Africa",
-  },
-  {
-    icon: Clock,
-    title: "Fast Dispatch",
-    description: "Same-day processing for orders placed before 2 PM",
-  },
+const features = [
   {
     icon: ShieldCheck,
-    title: "Secure Packing",
-    description: "Industrial-grade protection for fragile car parts",
+    title: "Expert Handling",
+    description: "Our dedicated team ensures the highest level of care and precision for all your finance requirements.",
   },
   {
-    icon: Truck,
-    title: "Real-time Tracking",
-    description: "Keep track of your parts from our warehouse to your door",
+    icon: Award,
+    title: "Industry Leading",
+    description: "We set the standard for quality and reliability across the logistics and freight sector.",
+  },
+  {
+    icon: Zap,
+    title: "Fast Turnaround",
+    description: "Advanced, optimized processes guarantee swift and efficient execution of your requests.",
+  },
+  {
+    icon: CheckCircle,
+    title: "Fully Compliant",
+    description: "All operations are carried out strictly according to international and local regulatory standards.",
   },
 ];
 
-export default function DeliveryPage() {
+const galleryImages = [
+  { src: "/new-img/new-img4.jpeg", alt: "Finance Operations 1" },
+  { src: "/new-img/new-img6.jpeg", alt: "Finance Operations 2" },
+  { src: "/new-img/new-img8.jpeg", alt: "Finance Operations 3" },
+];
+
+export default function FinancePage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero */}
-      <section className="relative py-20 md:py-40 overflow-hidden bg-slate-50 pt-20 md:pt-40">
-        <div className="absolute inset-0 z-0 opacity-40">
-           <div className="absolute top-0 right-0 w-[60%] h-full bg-primary/10 skew-x-12 translate-x-1/4" />
-        </div>
+      {/* Dynamic Hero Slider */}
+      <ServiceHero
+        title="Finance"
+        subtitle="Services"
+        description="Comprehensive finance services tailored to meet your most demanding logistics and operational needs. We prioritize speed, security, and elite precision."
+        tag="Premium Freight Services"
+        images={["/neww.png", "/from-japan.png", "/packing2.png"]}
+        icon={FileText}
+      />
 
-        <div className="container mx-auto px-6 relative z-10">
+      {/* Gallery Section */}
+      <section className="py-24 md:py-32 bg-[#f8fafc]">
+        <div className="container mx-auto px-6">
           <motion.div
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true }}
             variants={staggerContainer}
-            className="max-w-4xl mx-auto text-center"
+            className="text-center mb-16"
           >
             <motion.span
               variants={fadeInUp}
-              className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-black text-[10px] font-black uppercase tracking-widest mb-8 shadow-xl shadow-primary/10"
+              className="text-[#2563eb] font-black uppercase tracking-[0.3em] text-[11px] block mb-4"
             >
-              <Truck className="h-4 w-4" />
-              Express Logistics
+              Our Operations
             </motion.span>
-            <motion.h1
+            <motion.h2
               variants={fadeInUp}
-              className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] text-slate-900 mb-8"
+              className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 mb-6 uppercase"
             >
-              Nationwide <br />
-              <span className="gradient-text italic italic uppercase">Shipping.</span>
-            </motion.h1>
+              Premium <span className="text-[#2563eb] italic">Execution.</span>
+            </motion.h2>
             <motion.p
               variants={fadeInUp}
-              className="text-xl md:text-3xl text-slate-600 max-w-2xl mx-auto mb-12 font-medium italic leading-snug"
+              className="text-lg md:text-xl text-slate-500 font-medium italic max-w-2xl mx-auto"
             >
-              From Bramley to Cape Town, we deliver your motor spares anywhere in South Africa with speed and safety guaranteed.
+              Browse a snapshot of our finance processes in action, handled meticulously by our expert logistics personnel.
             </motion.p>
-            <motion.div
-              variants={fadeInUp}
-              className="flex flex-col sm:flex-row items-center justify-center gap-6"
-            >
-              <Button asChild size="xl" className="btn-primary rounded-none px-12 py-8 text-xl font-black uppercase tracking-widest shadow-2xl shadow-primary/20 h-auto">
-                <a href="https://wa.me/27842667178" target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="mr-3 h-6 w-6 text-black" />
-                  Request Delivery
-                </a>
-              </Button>
-              <Button
-                asChild
-                size="xl"
-                variant="outline"
-                className="rounded-none px-12 py-8 text-xl font-black uppercase tracking-widest border-2 border-slate-200 hover:bg-slate-50 transition-all h-auto"
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-3 gap-6"
+          >
+            {galleryImages.map((img, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className="relative aspect-[4/3] rounded-[32px] overflow-hidden shadow-2xl shadow-black/10 group"
               >
-                <a href="tel:+27842667178">
-                  <Phone className="mr-3 h-6 w-6" />
-                  Track My Order
-                </a>
-              </Button>
-            </motion.div>
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <span className="bg-white/90 backdrop-blur-md text-slate-900 text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full">
+                    {img.alt}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Benefits Grid */}
+      {/* Features Grid */}
       <section className="py-24 md:py-40">
         <div className="container mx-auto px-6">
           <motion.div
@@ -126,13 +155,13 @@ export default function DeliveryPage() {
               variants={fadeInUp}
               className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 mb-6 uppercase"
             >
-              Our Delivery <span className="text-primary italic">Standard.</span>
+              Quality <span className="text-[#2563eb] italic">Assured.</span>
             </motion.h2>
             <motion.p
               variants={fadeInUp}
               className="text-lg md:text-2xl text-slate-500 font-medium italic max-w-3xl mx-auto"
             >
-              We handle every part with expert care, ensuring it reaches your workshop or home in perfect condition.
+              We provide the highest caliber service, prioritizing efficiency and performance for every operational step.
             </motion.p>
           </motion.div>
 
@@ -143,20 +172,20 @@ export default function DeliveryPage() {
             variants={staggerContainer}
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
-            {benefits.map((benefit, index) => (
+            {features.map((feature, index) => (
               <motion.div
                 key={index}
                 variants={fadeInUp}
-                className="bg-slate-50 p-10 rounded-none border border-slate-100 hover:border-primary/30 hover:shadow-2xl transition-all group"
+                className="bg-slate-50 p-10 rounded-[32px] border border-slate-100 hover:border-blue-500/30 hover:shadow-2xl transition-all group"
               >
-                <div className="w-16 h-16 bg-white border border-slate-100 flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
-                  <benefit.icon className="h-8 w-8 text-slate-700 group-hover:text-black" />
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#2563eb] transition-colors">
+                  <feature.icon className="h-8 w-8 text-slate-700 group-hover:text-white" />
                 </div>
                 <h3 className="text-2xl font-black text-slate-900 tracking-tighter uppercase mb-4">
-                  {benefit.title}
+                  {feature.title}
                 </h3>
                 <p className="text-slate-500 font-medium leading-relaxed italic text-sm">
-                  {benefit.description}
+                  {feature.description}
                 </p>
               </motion.div>
             ))}
@@ -164,9 +193,10 @@ export default function DeliveryPage() {
         </div>
       </section>
 
-      {/* Delivery Process */}
-      <section className="py-24 md:py-40 bg-slate-900 text-white relative overflow-hidden">
-        <div className="absolute right-0 top-0 w-64 h-64 bg-primary/10 blur-[100px]" />
+      {/* Overview Section */}
+      <section className="py-24 md:py-40 bg-slate-900 text-white relative overflow-hidden rounded-[60px] mx-6">
+        <div className="absolute left-0 bottom-0 w-64 h-64 bg-blue-500/10 blur-[100px]" />
+        <div className="absolute right-0 top-0 w-64 h-64 bg-blue-500/5 blur-[100px]" />
         <div className="container mx-auto px-6">
           <motion.div
             initial="hidden"
@@ -177,51 +207,102 @@ export default function DeliveryPage() {
           >
             <motion.h2
               variants={fadeInUp}
-              className="text-4xl md:text-7xl font-black tracking-tighter mb-16 text-center"
+              className="text-4xl md:text-7xl font-black tracking-tighter mb-12 text-center uppercase leading-none"
             >
-              ORDER TO <span className="text-primary italic">DOORSTEP.</span>
+              Service <span className="text-[#2563eb] italic">Highlights.</span>
             </motion.h2>
-            <div className="space-y-8">
-              {[
-                {
-                  step: "01",
-                  title: "Order Placement",
-                  description: "Once your payment is verified, the order is sent to our Bramley warehouse.",
-                },
-                {
-                  step: "02",
-                  title: "Precision Picking",
-                  description: "Our team selects the exact part and performs a final quality check.",
-                },
-                {
-                  step: "03",
-                  title: "Safe Packaging",
-                  description: "Parts are wrapped in industrial-grade protective materials and boxed.",
-                },
-                {
-                  step: "04",
-                  title: "Courier Dispatch",
-                  description: "Your tracking number is generated and your part is on its way.",
-                },
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  variants={fadeInUp}
-                  className="bg-slate-800 border border-slate-700 p-8 flex gap-8 items-center group hover:border-primary transition-colors"
-                >
-                  <div className="text-5xl md:text-7xl font-black text-primary/20 group-hover:text-primary transition-colors">
-                    {item.step}
+            <motion.div
+              variants={fadeInUp}
+              className="bg-white/5 backdrop-blur-md border border-white/10 p-12 md:p-20 rounded-[48px]"
+            >
+              <div className="grid md:grid-cols-2 gap-8">
+                {[
+                   "Professional implementation",
+                   "End-to-end logistics solutions",
+                   "Certified operators and specialists",
+                   "Real-time operational tracking",
+                   "Comprehensive risk management",
+                   "Scalable to project requirements",
+                   "Customer-first service approach",
+                   "Competitive and transparent pricing",
+                ].map((item, index) => (
+                  <div key={index} className="flex items-center gap-4 group">
+                    <CheckCircle className="h-6 w-6 text-[#2563eb] flex-shrink-0" />
+                    <span className="text-lg font-bold text-slate-300 group-hover:text-white transition-colors italic">{item}</span>
                   </div>
-                  <div>
-                    <h3 className="text-2xl md:text-3xl font-black mb-2 uppercase tracking-tight">
-                      {item.title}
-                    </h3>
-                    <p className="text-slate-400 font-medium italic">{item.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Location Section */}
+      <section className="py-24 md:py-32">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+            >
+              <motion.span
+                variants={fadeInUp}
+                className="text-[#2563eb] font-black uppercase tracking-[0.3em] text-[11px] block mb-6"
+              >
+                Visit Us
+              </motion.span>
+              <motion.h2
+                variants={fadeInUp}
+                className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 mb-8 uppercase leading-none"
+              >
+                Freightboys <br />
+                <span className="text-[#2563eb] italic">Operations.</span>
+              </motion.h2>
+              <motion.p
+                variants={fadeInUp}
+                className="text-lg text-slate-500 font-medium italic leading-relaxed mb-8"
+              >
+                Based in South Africa, we coordinate local and international logistics, bringing you seamless cross-border transport, customs clearing, and efficient handling for all specialized requests.
+              </motion.p>
+              <motion.div variants={fadeInUp} className="space-y-4">
+                {[
+                  { icon: MapPin, label: "South Africa & Regional Borders" },
+                  { icon: Gauge, label: "Fast clearance & zero delays" },
+                  { icon: ShieldCheck, label: "Secure handling & fully bonded" },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-[#2563eb] shadow-sm">
+                      <item.icon className="w-6 h-6" />
+                    </div>
+                    <span className="font-bold text-slate-700 text-sm uppercase tracking-tight">{item.label}</span>
+                  </div>
+                ))}
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative aspect-[4/3] rounded-[48px] overflow-hidden shadow-2xl"
+            >
+              <Image
+                src="/new-img/equipment.jpeg"
+                alt="Freightboys Logistics Hub"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div className="absolute bottom-8 left-8 right-8">
+                <div className="bg-white/90 backdrop-blur-md rounded-2xl p-6">
+                  <p className="font-black text-slate-900 text-lg uppercase tracking-tight">Logistics Hub</p>
+                  <p className="text-sm text-slate-500 font-medium italic">South Africa — Custom Solutions</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -232,24 +313,23 @@ export default function DeliveryPage() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-slate-50 p-12 md:p-32 rounded-none border border-slate-100 max-w-6xl mx-auto shadow-sm"
+            className="max-w-6xl mx-auto"
           >
-            <h2 className="text-4xl md:text-7xl font-black tracking-tighter mb-10 text-slate-900 leading-tight">
-              FASTEST <span className="gradient-text italic italic uppercase">SHIPPING.</span>
+            <h2 className="text-4xl md:text-7xl font-black tracking-tighter mb-10 text-slate-900 leading-tight uppercase">
+               Enhance Your <span className="gradient-text italic">Logistics.</span>
             </h2>
             <p className="text-lg md:text-2xl text-slate-500 font-medium mb-16 max-w-3xl mx-auto italic leading-relaxed">
-              Don't wait weeks for your vehicle parts. ~Spares City provides the most reliable delivery services in Johannesburg and beyond.
+               Get in touch with us today to discuss your specific requirements and receive a customized plan for our finance service.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-10">
-              <Button asChild size="xl" className="btn-primary rounded-none px-20 py-10 h-auto text-2xl font-black uppercase tracking-[0.2em] w-full sm:w-auto shadow-xl shadow-primary/20">
-                <a href="https://wa.me/27842667178" target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="mr-4 h-8 w-8 text-black" />
-                  Order Parts
-                </a>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-center">
+              <Button asChild size="xl" className="h-20 px-12 rounded-[24px] btn-primary-new text-xl shadow-2xl">
+                <Link href="/contact" className="flex items-center gap-3">
+                  <MessageCircle className="h-6 w-6" /> Contact Us
+                </Link>
               </Button>
-              <Button asChild size="xl" variant="outline" className="border-4 border-slate-200 text-slate-900 rounded-none px-20 py-10 h-auto text-2xl font-black uppercase tracking-widest hover:bg-slate-900 hover:text-white transition-all w-full sm:w-auto">
-                <Link href="/contact">
-                  Visit Store
+              <Button asChild size="xl" variant="outline" className="h-20 px-12 rounded-[24px] border-4 border-slate-100 text-xl font-black uppercase tracking-widest hover:bg-slate-900 hover:text-white transition-all">
+                <Link href="/services">
+                  Explore Services
                 </Link>
               </Button>
             </div>

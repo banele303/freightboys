@@ -1,4 +1,30 @@
-"use client";
+const fs = require('fs');
+const path = require('path');
+
+const servicesDir = path.join(__dirname, 'app/services');
+
+function toTitleCase(str) {
+  return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+}
+
+function getIconForService(name) {
+  if (name.includes('container') || name.includes('packing')) return 'Package';
+  if (name.includes('transport') || name.includes('freight')) return 'Truck';
+  if (name.includes('vehicle') || name.includes('car')) return 'Car';
+  if (name.includes('sea') || name.includes('boat')) return 'Ship';
+  if (name.includes('customs') || name.includes('finance')) return 'FileText';
+  if (name.includes('engine') || name.includes('workshop')) return 'Wrench';
+  return 'Briefcase';
+}
+
+function generatePageContent(dirName) {
+  const title = toTitleCase(dirName);
+  const words = title.split(' ');
+  const firstWord = words[0];
+  const restWords = words.slice(1).join(' ') || 'Services';
+  const icon = getIconForService(dirName);
+
+  return `"use client";
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -42,7 +68,7 @@ const features = [
   {
     icon: ShieldCheck,
     title: "Expert Handling",
-    description: "Our dedicated team ensures the highest level of care and precision for all your road freight requirements.",
+    description: "Our dedicated team ensures the highest level of care and precision for all your ${title.toLowerCase()} requirements.",
   },
   {
     icon: Award,
@@ -62,22 +88,22 @@ const features = [
 ];
 
 const galleryImages = [
-  { src: "/new-img/new-img4.jpeg", alt: "Road Freight Operations 1" },
-  { src: "/new-img/new-img6.jpeg", alt: "Road Freight Operations 2" },
-  { src: "/new-img/new-img8.jpeg", alt: "Road Freight Operations 3" },
+  { src: "/new-img/new-img4.jpeg", alt: "${title} Operations 1" },
+  { src: "/new-img/new-img6.jpeg", alt: "${title} Operations 2" },
+  { src: "/new-img/new-img8.jpeg", alt: "${title} Operations 3" },
 ];
 
-export default function RoadFreightPage() {
+export default function ${dirName.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('')}Page() {
   return (
     <div className="min-h-screen bg-white">
       {/* Dynamic Hero Slider */}
       <ServiceHero
-        title="Road"
-        subtitle="Freight"
-        description="Comprehensive road freight services tailored to meet your most demanding logistics and operational needs. We prioritize speed, security, and elite precision."
+        title="${firstWord}"
+        subtitle="${restWords}"
+        description="Comprehensive ${title.toLowerCase()} services tailored to meet your most demanding logistics and operational needs. We prioritize speed, security, and elite precision."
         tag="Premium Freight Services"
         images={["/neww.png", "/from-japan.png", "/packing2.png"]}
-        icon={Truck}
+        icon={${icon}}
       />
 
       {/* Gallery Section */}
@@ -106,7 +132,7 @@ export default function RoadFreightPage() {
               variants={fadeInUp}
               className="text-lg md:text-xl text-slate-500 font-medium italic max-w-2xl mx-auto"
             >
-              Browse a snapshot of our road freight processes in action, handled meticulously by our expert logistics personnel.
+              Browse a snapshot of our ${title.toLowerCase()} processes in action, handled meticulously by our expert logistics personnel.
             </motion.p>
           </motion.div>
 
@@ -319,7 +345,7 @@ export default function RoadFreightPage() {
                Enhance Your <span className="gradient-text italic">Logistics.</span>
             </h2>
             <p className="text-lg md:text-2xl text-slate-500 font-medium mb-16 max-w-3xl mx-auto italic leading-relaxed">
-               Get in touch with us today to discuss your specific requirements and receive a customized plan for our road freight service.
+               Get in touch with us today to discuss your specific requirements and receive a customized plan for our ${title.toLowerCase()} service.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-center">
               <Button asChild size="xl" className="h-20 px-12 rounded-[24px] btn-primary-new text-xl shadow-2xl">
@@ -339,3 +365,24 @@ export default function RoadFreightPage() {
     </div>
   );
 }
+`;
+}
+
+const ignoreList = ['engines-gearboxes', 'used-commercial-vehicles', 'page.tsx']; 
+
+const directories = fs.readdirSync(servicesDir, { withFileTypes: true })
+  .filter(dirent => dirent.isDirectory())
+  .map(dirent => dirent.name);
+
+for (const dir of directories) {
+  if (ignoreList.includes(dir)) continue;
+
+  const pagePath = path.join(servicesDir, dir, 'page.tsx');
+  
+  // Overwrite existing placeholder pages
+  console.log('Overwriting', pagePath);
+  const content = generatePageContent(dir);
+  fs.writeFileSync(pagePath, content, 'utf8');
+}
+
+console.log('Done fully replacing all service placeholder pages with the intended rich engines-gearboxes layout component.');

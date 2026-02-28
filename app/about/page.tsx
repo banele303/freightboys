@@ -113,7 +113,7 @@ export default function AboutPage() {
               <div className="relative">
                  <div className="relative rounded-[60px] overflow-hidden shadow-2xl shadow-black/10 border-[15px] border-white z-10">
                     <NextImage 
-                      src="/newpn.png" 
+                      src="/packing.png" 
                       alt="Operations Team" 
                       width={800} 
                       height={1000} 

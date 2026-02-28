@@ -4,7 +4,26 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import { CheckCircle, Phone, MessageCircle, Box, ArrowRight, Home, ShieldCheck, MapPin, Search } from "lucide-react";
+import {
+  ShieldCheck,
+  CheckCircle,
+  MessageCircle,
+  Zap,
+  MapPin,
+  Award,
+  ArrowRight,
+  Wrench,
+  Cpu,
+  Gauge,
+  Phone,
+  Package,
+  Truck,
+  Car,
+  Ship,
+  FileText,
+  Briefcase
+} from "lucide-react";
+import ServiceHero from "@/components/ServiceHero";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -13,148 +32,308 @@ const fadeInUp = {
 
 const staggerContainer = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
 };
+
+const features = [
+  {
+    icon: ShieldCheck,
+    title: "Expert Handling",
+    description: "Our dedicated team ensures the highest level of care and precision for all your container sales requirements.",
+  },
+  {
+    icon: Award,
+    title: "Industry Leading",
+    description: "We set the standard for quality and reliability across the logistics and freight sector.",
+  },
+  {
+    icon: Zap,
+    title: "Fast Turnaround",
+    description: "Advanced, optimized processes guarantee swift and efficient execution of your requests.",
+  },
+  {
+    icon: CheckCircle,
+    title: "Fully Compliant",
+    description: "All operations are carried out strictly according to international and local regulatory standards.",
+  },
+];
+
+const galleryImages = [
+  { src: "/new-img/new-img4.jpeg", alt: "Container Sales Operations 1" },
+  { src: "/new-img/new-img6.jpeg", alt: "Container Sales Operations 2" },
+  { src: "/new-img/new-img8.jpeg", alt: "Container Sales Operations 3" },
+];
 
 export default function ContainerSalesPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero */}
-      <section className="relative h-[80vh] min-h-[600px] flex items-center overflow-hidden bg-[#0a0a0a]">
-        <div className="absolute inset-0 z-0">
-          <Image src="/new-img/conteiner2.jpeg" alt="Container Sales" fill className="object-cover opacity-30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-[#0a0a0a]" />
-        </div>
-        <div className="absolute top-0 right-1/4 w-[400px] h-[300px] bg-[#ef4444]/15 blur-[120px] rounded-full pointer-events-none" />
+      {/* Dynamic Hero Slider */}
+      <ServiceHero
+        title="Container"
+        subtitle="Sales"
+        description="Comprehensive container sales services tailored to meet your most demanding logistics and operational needs. We prioritize speed, security, and elite precision."
+        tag="Premium Freight Services"
+        images={["/neww.png", "/from-japan.png", "/packing2.png"]}
+        icon={Package}
+      />
 
-        <div className="container mx-auto px-6 relative z-10 pt-20">
-          <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-4xl mx-auto text-center">
-            <motion.span variants={fadeInUp} className="inline-flex items-center gap-2 px-6 py-2 bg-[#ef4444] text-white text-[10px] font-black uppercase tracking-widest mb-8 shadow-2xl shadow-red-500/40 rounded-full">
-              <Box className="h-4 w-4" /> New & Used Units
+      {/* Gallery Section */}
+      <section className="py-24 md:py-32 bg-[#f8fafc]">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="text-center mb-16"
+          >
+            <motion.span
+              variants={fadeInUp}
+              className="text-[#2563eb] font-black uppercase tracking-[0.3em] text-[11px] block mb-4"
+            >
+              Our Operations
             </motion.span>
-            <motion.h1 variants={fadeInUp} className="text-6xl md:text-9xl font-black tracking-tighter leading-[0.85] text-white mb-10 uppercase italic">
-              Container <br /> <span className="text-[#ef4444]">Sales</span>
-            </motion.h1>
-            <motion.p variants={fadeInUp} className="text-lg md:text-2xl text-slate-300 max-w-2xl mx-auto mb-10 font-medium leading-relaxed drop-shadow-lg">
-              Sales of new and used shipping containers for diverse applications, ensuring high quality and structural durability.
+            <motion.h2
+              variants={fadeInUp}
+              className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 mb-6 uppercase"
+            >
+              Premium <span className="text-[#2563eb] italic">Execution.</span>
+            </motion.h2>
+            <motion.p
+              variants={fadeInUp}
+              className="text-lg md:text-xl text-slate-500 font-medium italic max-w-2xl mx-auto"
+            >
+              Browse a snapshot of our container sales processes in action, handled meticulously by our expert logistics personnel.
             </motion.p>
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12">
-              <Button asChild size="xl" className="h-20 px-12 rounded-[24px] bg-[#ef4444] hover:bg-[#dc2626] text-white text-xl shadow-2xl shadow-red-500/20 border border-white/10 group overflow-hidden relative font-black uppercase tracking-widest">
-                <Link href="/contact" className="flex items-center gap-3">
-                  <span className="relative z-10">Request Pricing</span>
-                  <ArrowRight className="h-6 w-6 relative z-10 group-hover:translate-x-2 transition-transform" />
-                </Link>
-              </Button>
-              <Button asChild size="xl" variant="outline" className="h-20 px-12 rounded-[24px] border-2 border-white/20 text-white text-xl font-black uppercase tracking-widest hover:bg-white hover:text-[#0a0a0a] transition-all">
-                <a href="tel:+27842667178" className="flex items-center gap-3">
-                  <Phone className="h-6 w-6" /> Call Now
-                </a>
-              </Button>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-3 gap-6"
+          >
+            {galleryImages.map((img, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className="relative aspect-[4/3] rounded-[32px] overflow-hidden shadow-2xl shadow-black/10 group"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <span className="bg-white/90 backdrop-blur-md text-slate-900 text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full">
+                    {img.alt}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Features Grid */}
+      <section className="py-24 md:py-40">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="text-center mb-20"
+          >
+            <motion.h2
+              variants={fadeInUp}
+              className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 mb-6 uppercase"
+            >
+              Quality <span className="text-[#2563eb] italic">Assured.</span>
+            </motion.h2>
+            <motion.p
+              variants={fadeInUp}
+              className="text-lg md:text-2xl text-slate-500 font-medium italic max-w-3xl mx-auto"
+            >
+              We provide the highest caliber service, prioritizing efficiency and performance for every operational step.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className="bg-slate-50 p-10 rounded-[32px] border border-slate-100 hover:border-blue-500/30 hover:shadow-2xl transition-all group"
+              >
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#2563eb] transition-colors">
+                  <feature.icon className="h-8 w-8 text-slate-700 group-hover:text-white" />
+                </div>
+                <h3 className="text-2xl font-black text-slate-900 tracking-tighter uppercase mb-4">
+                  {feature.title}
+                </h3>
+                <p className="text-slate-500 font-medium leading-relaxed italic text-sm">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Overview Section */}
+      <section className="py-24 md:py-40 bg-slate-900 text-white relative overflow-hidden rounded-[60px] mx-6">
+        <div className="absolute left-0 bottom-0 w-64 h-64 bg-blue-500/10 blur-[100px]" />
+        <div className="absolute right-0 top-0 w-64 h-64 bg-blue-500/5 blur-[100px]" />
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="max-w-5xl mx-auto"
+          >
+            <motion.h2
+              variants={fadeInUp}
+              className="text-4xl md:text-7xl font-black tracking-tighter mb-12 text-center uppercase leading-none"
+            >
+              Service <span className="text-[#2563eb] italic">Highlights.</span>
+            </motion.h2>
+            <motion.div
+              variants={fadeInUp}
+              className="bg-white/5 backdrop-blur-md border border-white/10 p-12 md:p-20 rounded-[48px]"
+            >
+              <div className="grid md:grid-cols-2 gap-8">
+                {[
+                   "Professional implementation",
+                   "End-to-end logistics solutions",
+                   "Certified operators and specialists",
+                   "Real-time operational tracking",
+                   "Comprehensive risk management",
+                   "Scalable to project requirements",
+                   "Customer-first service approach",
+                   "Competitive and transparent pricing",
+                ].map((item, index) => (
+                  <div key={index} className="flex items-center gap-4 group">
+                    <CheckCircle className="h-6 w-6 text-[#2563eb] flex-shrink-0" />
+                    <span className="text-lg font-bold text-slate-300 group-hover:text-white transition-colors italic">{item}</span>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Uses & Use Cases */}
-      <section className="py-24 bg-white">
+      {/* Location Section */}
+      <section className="py-24 md:py-32">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-[#2563eb] font-black text-[10px] uppercase tracking-widest mb-2 block">Versatile Solutions</span>
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase italic">Container <span className="text-[#2563eb]">Applications</span></h2>
-          </div>
-          <div className="grid md:grid-cols-4 gap-6">
-            {[
-              { icon: ShieldCheck, title: "Export Shipping", desc: "Cargo-worthy condition for safe international sea freight.", color: "bg-[#ef4444]" },
-              { icon: Box, title: "Site Storage", desc: "Wind, water, and weather tight for on-site secure storage.", color: "bg-[#2563eb]" },
-              { icon: Home, title: "Modifications", desc: "Converted into site offices, homes, or pop-up retail.", color: "bg-[#ef4444]" },
-              { icon: Search, title: "Specialized", desc: "Reefer (refrigerated), open-top, and flat-rack availability.", color: "bg-[#2563eb]" },
-            ].map((item, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }}
-                className="bg-slate-50 rounded-3xl p-8 border border-slate-100 group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <div className={`w-14 h-14 ${item.color} rounded-2xl flex items-center justify-center mb-6 shadow-md`}>
-                  <item.icon className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight mb-2">{item.title}</h3>
-                <p className="text-slate-500 font-medium italic text-sm leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Detail Content */}
-      <section className="py-24 md:py-32 bg-slate-50">
-         <div className="container mx-auto px-6">
-            <div className="grid lg:grid-cols-2 gap-20 items-center">
-               <div className="relative aspect-square rounded-[60px] overflow-hidden shadow-2xl order-2 lg:order-1">
-                  <Image src="/new-img/new-img3.jpeg" alt="Containers Inventory" fill className="object-cover" />
-               </div>
-               <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-8 order-1 lg:order-2">
-                  <span className="text-[#ef4444] font-black text-[10px] uppercase tracking-widest block">Massive Inventory</span>
-                  <h2 className="text-5xl font-black tracking-tighter text-slate-900 uppercase italic">Premium <br/><span className="text-[#ef4444] italic">Stock.</span></h2>
-                  <p className="text-xl text-slate-500 font-medium leading-relaxed italic">
-                    Whether you need a container for shipping overseas or secure on-site storage, our extensive inventory has you covered with the best units available.
-                  </p>
-                  <div className="space-y-4">
-                     {[ "High-quality brand new units available", "Cargo-worthy and wind/watertight used stock", "Various sizes (10ft, 20ft, 40ft, High Cube)", "Readily available for immediate modification", "Secure crane delivery across South Africa", "Highly competitive market pricing"].map((item, i) => (
-                        <div key={i} className="flex items-center gap-3">
-                           <CheckCircle className="h-6 w-6 text-[#ef4444] flex-shrink-0" />
-                           <span className="text-lg font-bold text-slate-700 italic">{item}</span>
-                        </div>
-                     ))}
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+            >
+              <motion.span
+                variants={fadeInUp}
+                className="text-[#2563eb] font-black uppercase tracking-[0.3em] text-[11px] block mb-6"
+              >
+                Visit Us
+              </motion.span>
+              <motion.h2
+                variants={fadeInUp}
+                className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 mb-8 uppercase leading-none"
+              >
+                Freightboys <br />
+                <span className="text-[#2563eb] italic">Operations.</span>
+              </motion.h2>
+              <motion.p
+                variants={fadeInUp}
+                className="text-lg text-slate-500 font-medium italic leading-relaxed mb-8"
+              >
+                Based in South Africa, we coordinate local and international logistics, bringing you seamless cross-border transport, customs clearing, and efficient handling for all specialized requests.
+              </motion.p>
+              <motion.div variants={fadeInUp} className="space-y-4">
+                {[
+                  { icon: MapPin, label: "South Africa & Regional Borders" },
+                  { icon: Gauge, label: "Fast clearance & zero delays" },
+                  { icon: ShieldCheck, label: "Secure handling & fully bonded" },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-[#2563eb] shadow-sm">
+                      <item.icon className="w-6 h-6" />
+                    </div>
+                    <span className="font-bold text-slate-700 text-sm uppercase tracking-tight">{item.label}</span>
                   </div>
-               </motion.div>
-            </div>
-         </div>
-      </section>
+                ))}
+              </motion.div>
+            </motion.div>
 
-      {/* Sizes Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-[#ef4444] font-black text-[10px] uppercase tracking-widest mb-2 block">Specifications</span>
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase italic">Common <span className="text-[#ef4444]">Sizes</span></h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { size: "20ft GP (General Purpose)", capacity: "33.2 cbm", payload: "Up to 28,000 kg", ideal: "Standard storage, site offices, small cargo." },
-              { size: "40ft GP (General Purpose)", capacity: "67.7 cbm", payload: "Up to 26,000 kg", ideal: "Large equipment, heavy volume shipping, housing." },
-              { size: "40ft HC (High Cube)", capacity: "76.4 cbm", payload: "Up to 26,000 kg", ideal: "Extra tall goods, maximum volume capacity." },
-            ].map((unit, i) => (
-              <div key={i} className="bg-slate-900 text-white p-10 rounded-[32px] border border-slate-800 shadow-2xl relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#ef4444]/10 rounded-full blur-3xl pointer-events-none" />
-                <h3 className="text-2xl font-black uppercase text-[#ef4444] mb-8">{unit.size}</h3>
-                <ul className="space-y-4 mb-8">
-                  <li className="flex items-center justify-between border-b border-white/10 pb-2">
-                    <span className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Volume</span>
-                    <span className="font-black italic">{unit.capacity}</span>
-                  </li>
-                  <li className="flex items-center justify-between border-b border-white/10 pb-2">
-                    <span className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Payload</span>
-                    <span className="font-black italic">{unit.payload}</span>
-                  </li>
-                </ul>
-                <p className="text-sm text-slate-300 font-medium italic"><span className="text-white font-black not-italic uppercase tracking-widest text-[10px] block mb-1">Ideal For:</span> {unit.ideal}</p>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative aspect-[4/3] rounded-[48px] overflow-hidden shadow-2xl"
+            >
+              <Image
+                src="/new-img/equipment.jpeg"
+                alt="Freightboys Logistics Hub"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div className="absolute bottom-8 left-8 right-8">
+                <div className="bg-white/90 backdrop-blur-md rounded-2xl p-6">
+                  <p className="font-black text-slate-900 text-lg uppercase tracking-tight">Logistics Hub</p>
+                  <p className="text-sm text-slate-500 font-medium italic">South Africa — Custom Solutions</p>
+                </div>
               </div>
-            ))}
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 bg-[#ef4444] relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/new-img/new-img3.jpeg')] bg-cover bg-center opacity-10 mix-blend-overlay" />
-        <div className="container mx-auto px-6 text-center relative z-10">
-          <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter uppercase italic mb-6">Need A <span className="text-white/80">Container?</span></h2>
-          <p className="text-white/80 text-lg font-medium mb-10 max-w-xl mx-auto italic">Get in touch for current stock lists, condition reports, and immediate delivery quotes.</p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact" className="px-10 py-5 bg-white text-[#ef4444] rounded-full font-black uppercase tracking-widest text-xs shadow-2xl hover:bg-slate-900 hover:text-white transition-all cursor-pointer flex items-center gap-2">
-              Request Pricing <ArrowRight className="w-4 h-4" />
-            </Link>
-            <a href="tel:+27842667178" className="px-10 py-5 bg-transparent text-white border-2 border-white/30 rounded-full font-black uppercase tracking-widest text-xs hover:bg-white hover:text-[#ef4444] transition-all cursor-pointer">
-              +27 84 266 7178
-            </a>
-          </div>
+      {/* CTA Section */}
+      <section className="py-24 md:py-40 bg-white">
+        <div className="container mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="max-w-6xl mx-auto"
+          >
+            <h2 className="text-4xl md:text-7xl font-black tracking-tighter mb-10 text-slate-900 leading-tight uppercase">
+               Enhance Your <span className="gradient-text italic">Logistics.</span>
+            </h2>
+            <p className="text-lg md:text-2xl text-slate-500 font-medium mb-16 max-w-3xl mx-auto italic leading-relaxed">
+               Get in touch with us today to discuss your specific requirements and receive a customized plan for our container sales service.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-center">
+              <Button asChild size="xl" className="h-20 px-12 rounded-[24px] btn-primary-new text-xl shadow-2xl">
+                <Link href="/contact" className="flex items-center gap-3">
+                  <MessageCircle className="h-6 w-6" /> Contact Us
+                </Link>
+              </Button>
+              <Button asChild size="xl" variant="outline" className="h-20 px-12 rounded-[24px] border-4 border-slate-100 text-xl font-black uppercase tracking-widest hover:bg-slate-900 hover:text-white transition-all">
+                <Link href="/services">
+                  Explore Services
+                </Link>
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>
