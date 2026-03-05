@@ -5,9 +5,9 @@ import ClientLayoutWrapper from "@/components/ClientLayoutWrapper";
 import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
-  title: "Freightboys | Customs Clearing, Road Freight & Container Solutions South Africa",
+  title: "Freightboys Seafreight Cargo Rigging and Crating Co. | Customs Clearing & Container Solutions",
   description:
-    "Freightboys Customs Clearing and Logistics Co. Professional customs clearing, road freight, and container loading/unloading services for the South African freight industry.",
+    "Freightboys Seafreight Cargo Rigging and Crating Co. Professional customs clearing, road freight, and container loading/unloading services for the South African freight industry.",
 };
 
 // ... Metadata export ...
@@ -37,7 +37,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "name": "Freightboys Customs Clearing and Logistics Co.",
+              "name": "Freightboys Seafreight Cargo Rigging and Crating Co.",
               "image": "/freightboys_logo.png",
               "phone": "+27 84 266 7178",
               "address": {

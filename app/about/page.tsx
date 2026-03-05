@@ -74,7 +74,7 @@ export default function AboutPage() {
               variants={fadeInUp}
               className="text-lg md:text-3xl text-slate-300 font-medium leading-relaxed max-w-3xl italic drop-shadow-lg"
             >
-              Freightboys is South Africa&apos;s premier customs clearing and forwarding provider, bridging the gap between <span className="text-white not-italic font-black">global trade</span> and local commerce.
+              Freightboys Seafreight Cargo Rigging and Crating Co. is South Africa&apos;s premier customs clearing and forwarding provider, bridging the gap between <span className="text-white not-italic font-black">global trade</span> and local commerce.
             </motion.p>
           </motion.div>
         </div>
@@ -96,7 +96,7 @@ export default function AboutPage() {
                    We don't just move boxes; we move businesses. From complex customs clearing to high-speed road freight, our specialty is the seamless flow of goods.
                  </p>
                  <p className="text-lg text-slate-600 font-medium leading-relaxed">
-                   Founded on the principles of precision and service, Freightboys has evolved into a logistics powerhouse. We ensure your assets reach their destination with zero compromises, every single time.
+                   Founded on the principles of precision and service, Freightboys Seafreight Cargo Rigging and Crating Co. has evolved into a logistics powerhouse. We ensure your assets reach their destination with zero compromises, every single time.
                  </p>
                  <div className="grid grid-cols-2 gap-8 pt-8">
                     <div className="px-10 py-8 bg-slate-50 rounded-[40px] border border-slate-100 group hover:bg-[#2563eb] transition-all duration-500">

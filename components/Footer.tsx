@@ -83,7 +83,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-slate-500 font-medium leading-relaxed italic mb-10 text-lg max-w-sm">
-              South Africa&apos;s specialist in customs clearing, road freight, and professional container solutions. Delivering quality service always.
+              Freightboys Seafreight Cargo Rigging and Crating Co. is South Africa&apos;s specialist in customs clearing, road freight, and professional container solutions. Delivering quality service always.
             </p>
             <div className="flex gap-4">
               {[Facebook, Instagram, Twitter, Youtube].map((Icon, i) => (
@@ -133,7 +133,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-slate-900 font-bold leading-tight italic">
-                    Freightboys Logistics Hub<br />
+                    Freightboys Seafreight Cargo Rigging and Crating Co. Hub<br />
                     South Africa
                   </p>
                 </div>
@@ -163,7 +163,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-8">
           <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">
-             © {new Date().getFullYear()} FREIGHTBOYS CUSTOMS CLEARING AND LOGISTICS CO. ALL RIGHTS RESERVED.
+             © {new Date().getFullYear()} FREIGHTBOYS SEAFREIGHT CARGO RIGGING AND CRATING CO. ALL RIGHTS RESERVED.
           </p>
           <div className="flex gap-8">
              {["PAYGATE", "VISA", "MASTERCARD", "OZOW"].map(tag => (

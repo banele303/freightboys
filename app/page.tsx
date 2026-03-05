@@ -328,9 +328,9 @@ export default function Home() {
                       <motion.span
                         initial={{ y: 10, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        className="inline-block bg-[#ef4444] text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-md mb-6"
+                        className="inline-block bg-[#ef4444] text-white text-[10px] sm:text-[12px] font-black uppercase tracking-widest px-6 py-2 rounded-md mb-6 shadow-xl w-full sm:w-auto text-center"
                       >
-                        Freight Excellence
+                        Freightboys Seafreight Cargo Rigging & Crating Co.
                       </motion.span>
 
                       <motion.h2
@@ -550,10 +550,13 @@ export default function Home() {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
-            <span className="text-[#ef4444] font-black uppercase tracking-[0.3em] text-[11px] block mb-4">Why Logistics Leaders Trust Us</span>
-            <h2 className="text-5xl lg:text-7xl font-black tracking-tighter leading-none">
+            <span className="text-[#ef4444] font-black uppercase tracking-[0.3em] text-[11px] md:text-[13px] block mb-4">Why Logistics Leaders Trust Us</span>
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter leading-none mb-6">
               THE <span className="text-[#2563eb]">FREIGHT</span>BOYS <span className="text-[#ef4444] italic uppercase">PROMISE.</span>
             </h2>
+            <p className="max-w-3xl mx-auto text-slate-300 font-bold uppercase tracking-widest text-[10px] md:text-xs">
+              Freightboys Seafreight Cargo Rigging and Crating Co.
+            </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -875,7 +878,7 @@ export default function Home() {
               { 
                 icon: Headset, 
                 title: "Expert Support", 
-                desc: "Direct technical advice from SPARES CITY" 
+                desc: "Direct technical advice from Freightboys Seafreight Cargo Rigging and Crating Co." 
               },
             ].map((feature, i) => (
               <motion.div 
