@@ -18,7 +18,8 @@ import {
   Truck,
   Box,
   Anchor,
-  Car
+  Car,
+  Cpu
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -59,6 +60,7 @@ export default function Navbar() {
     { title: "Vehicle Freight", subtitle: "Ocean Freight Experts", href: "/services/vehicle-ocean-freight", icon: Anchor },
     { title: "Specialized Services", subtitle: "Exclusive Deliveries", href: "/services/specialized", icon: Truck },
     { title: "New Vehicles (Thailand)", subtitle: "Exclusive Imports", href: "/services/new-vehicles-thailand", icon: Car },
+    { title: "Specialized IT Logistics", subtitle: "Servers & Infrastructure", href: "/services/it-logistics", icon: Cpu },
     { title: "Used Commercial", subtitle: "Japan & Singapore", href: "/services/used-commercial-vehicles", icon: Truck },
     { title: "Engines & Gearboxes", subtitle: "Preloved Auto Parts", href: "/services/engines-gearboxes", icon: Zap },
   ];
@@ -87,7 +89,7 @@ export default function Navbar() {
               <span>Call: +27 (0) 84 266 7178</span>
             </a>
             <div className="w-[1px] h-3 bg-slate-200" />
-            <a href="https://wa.me/27842667178" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[#25D366] hover:opacity-80 transition-all">
+            <a href="https://api.whatsapp.com/send?phone=27842667178&text=Hello%20Freightboys" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[#25D366] hover:opacity-80 transition-all">
               <WhatsAppIcon className="w-4 h-4" />
               <span className="font-black">WhatsApp Now</span>
             </a>
@@ -304,7 +306,7 @@ export default function Navbar() {
                   </div>
 
                   <div className="pt-12 flex flex-col items-center gap-4">
-                    <a href="https://wa.me/27842667178" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-[#25D366]">
+                    <a href="https://api.whatsapp.com/send?phone=27842667178&text=Hello%20Freightboys" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-[#25D366]">
                       <WhatsAppIcon className="w-6 h-6" />
                       <span className="font-black text-sm uppercase tracking-widest">Chat on WhatsApp</span>
                     </a>

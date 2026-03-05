@@ -6,7 +6,7 @@ export default function WhatsAppButton() {
   // Phone number from RootLayout metadata: +27 84 266 7178
   const phoneNumber = "27842667178";
   const message = "Hello Freightboys, I would like to inquire about your services.";
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
 
   return (
     <motion.a

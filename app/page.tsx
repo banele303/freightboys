@@ -164,6 +164,13 @@ const categories = [
     href: "/services/container-fumigation"
   },
   { 
+    name: "Specialized IT Logistics", 
+    icon: Cpu, 
+    count: "Infrastructure",
+    image: "/new-img/engine1.jpeg",
+    href: "/services/it-logistics"
+  },
+  { 
     name: "Stevedoring", 
     icon: Anchor, 
     count: "Operations",
@@ -447,7 +454,7 @@ export default function Home() {
           <div className="marquee-content gap-16 items-center" style={{ "--duration": "30s" } as React.CSSProperties}>
             {[...Array(2)].map((_, setIdx) => (
               <div key={setIdx} className="flex items-center gap-16 px-8 text-black">
-                {["Customs Clearing", "Road Freight Logistics", "Container Solutions", "Vehicle Ocean Freight", "Vintage Vehicles Packing", "Import Used Vehicles", "Container Sales", "Household Effects", "Cross Border Transport", "Seafreight Assessments", "Local & National Transport", "Container Fumigation", "Stevedoring Services"].map((service) => (
+                {["Customs Clearing", "Road Freight Logistics", "Specialized IT Logistics", "Container Solutions", "Vehicle Ocean Freight", "Vintage Vehicles Packing", "Import Used Vehicles", "Container Sales", "Household Effects", "Cross Border Transport", "Seafreight Assessments", "Local & National Transport", "Container Fumigation", "Stevedoring Services"].map((service) => (
                   <span key={`${setIdx}-${service}`} className="text-slate-300 text-2xl font-black uppercase tracking-widest whitespace-nowrap hover:text-slate-900 transition-colors cursor-default">
                     {service}
                   </span>
@@ -598,6 +605,7 @@ export default function Home() {
               { name: "Container Solutions", description: "I load and unload cargo into containers either into or out of the country ie import export. Professional stuffing & unpacking.", price: "Safety First", tag: "Operations", image: "/new-img/container.jpeg", link: "/services" },
               { name: "Vehicle Ocean Freight", description: "I specialize in loading and offloading vehicles in ocean freight containers. Precision lashing and secure global transit.", price: "Specilaist", tag: "Maritime", image: "/from-jpn3.png", link: "/services" },
               { name: "Vintage Vehicles Packing", description: "Relocation of prized used collectors vehicles to New Zealand. Carefully lashed to ensuring scratch-free delivery.", price: "R 3,950.00", tag: "NZ Export", image: "/vintage.png", link: "/services" },
+              { name: "Specialized IT Logistics", description: "Secure handling, packing, and relocation of sensitive commercial IT infrastructure, servers, and tech equipment.", price: "Custom Quote", tag: "IT Tech", image: "/from-jp2.png", link: "/services/it-logistics" },
               { name: "Import Used Vehicles", description: "Used cars from Japan & Singapore to South Africa. BONDED as transit to SADC COUNTRIES IN AFRICA. KNE103U.", price: "R 1,950.00", tag: "Bonded", image: "/from-japan.png", link: "/services" },
               { name: "Container Sales", description: "Sales of new and used shipping containers for diverse applications, ensuring high quality and structural durability.", price: "Custom Quote", tag: "Sales", image: "/new-img/conteiner2.jpeg", link: "/services/container-sales" },
               { name: "Household Effects", description: "Professional packaging and loading into containers for those leaving the country or moving within. Customs assistance.", price: "Custom Quote", tag: "Relocations", image: "/new-img/new-img4.jpeg", link: "/services/household-effects" },
@@ -692,6 +700,19 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ═══════════════════════════════════════════════════════ */}
+      {/*  SECTION 5.5: DEDICATED IT HEADING                     */}
+      {/* ═══════════════════════════════════════════════════════ */}
+      <section className="py-24 bg-[#0a0a0a] text-white">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-4xl sm:text-6xl lg:text-8xl font-black tracking-tighter uppercase italic text-white flex flex-col items-center justify-center">
+            SPECIALIZED <b className="text-[#2563eb] mt-2 text-6xl sm:text-8xl lg:text-[120px]">IT</b> LOGISTICS
+          </h2>
+          <p className="mt-8 text-xl text-slate-400 max-w-2xl mx-auto font-medium">
+            Secure handling, transport, and deployment of sensitive server and commercial IT infrastructure across borders. Trusted by digital enterprises.
+          </p>
+        </div>
+      </section>
 
       {/* ═══════════════════════════════════════════════════════ */}
       {/*  SECTION 6: SOCIAL PROOF                              */}
